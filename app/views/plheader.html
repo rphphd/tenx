@@ -1,0 +1,39 @@
+<div class="row">
+  <div class="col-md-6">
+    <h2>{{ inRe ? numProps : "" }} Portfolio Properties</h2>
+  </div>
+  <div class="col-md-6">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="dropdown" >
+          <span style="font-size:12px; margin-left:-10px;">Sort:</span>
+          <div class="btn-group" role="group" aria-label="sortButtonGroup" >
+            <div class="btn-group" role="group">
+              <button class="btn btn-default dropdown-toggle" type="button"
+                  id="propSortMenu" data-toggle="dropdown" aria-haspopup="true"
+                  aria-expanded="true" style="font-size:10px;">
+                {{sortField}}
+                <span class="caret" style="font-size:10px;"></span>
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenu1" >
+                <li ><a ng-click="changeSort(fld)" href="" ng-repeat="fld in sortFields"
+                  style="font-size:10px;">{{fld}}</a></li>
+              </ul>
+            </div>
+            <button class="btn btn-default" type="button" style="font-size:10px;"
+                ng-click="changeDirection()">
+              <i ng-class="sortDirection" ></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <button type="button" class="button--xs button--gray-border"
+          ng-click="addAllToPortfolio()"
+          style="font-size:10px;text-transform:none;font-weight:800;">
+          Add Properties to WatchList
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

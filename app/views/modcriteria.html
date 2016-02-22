@@ -1,0 +1,50 @@
+<!--p style="min-width: 810px; min-height:
+213px;background-color:rgba(242,228,228,1)">This is the modcriteria view.</p-->
+<!--img src="images/stubimages/modcrit.png" style="width:810px;height:213px;" /-->
+<div ng-controller="ModcriteriaCtrl">
+  <div class="panel panel-default" style="background-color: rgba(248,248,248,1);">
+    <div class="panel-heading">
+      <h4 class="panel-title">Modify Criteria
+        <a ng-click="openClosePanel()"><i ng-class="openClose" ></i></a>
+      </h4>
+    </div>
+    <div ng-show="showCriteria" class="panel-body"
+        style="background-color: rgba(242,242,242,1);">
+      <table style="width:100%;margin-bottom:20px;">
+        <tr>
+          <td>
+            <div ng-repeat="filt in filters" ng-show="filt.state==='display'"
+                style="display:inline-block;margin-right:15px;width:{{filt.width}}%;vertical-align:top;">
+              {{ filt.name }}&nbsp;<i ng-click="collapseFilter(filt.name)"
+                                      class="fa fa-angle-double-down"></i><br/>
+                 <span ng-html-compile="'{{filt.code}}'"></span>
+                 <span ng-show="notValid" style="color:red;">{{errmsg}}</span>
+            </div>
+          </td>
+          <td style="width:15%;font-size:115%;">
+            <a href="#" ng-click="portfolioReset($event)">
+            <h4>Reset Portfolio</h4></a>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div ng-show="showCriteria" class="panel-footer"
+        style="background-color: rgba(248,248,248,1);border:none;">
+        <button class="btn btn-default" href=""
+            style="background-color: rgba(242,242,242,1);margin-right:5px;">
+        More Filters</button>
+        <div ng-repeat="filt in filters" ng-show="filt.state==='collapsed'"
+            class="btn-group" role="group" aria-label="collapsedFilters">
+          <button
+            class="btn btn-default" ng-click="expandFilter(filt.name)"
+            style="background-color: rgba(242,242,242,1);">
+            {{filt.name}}</button>
+          <button class="btn btn-default"
+            style="background-color: rgba(242,242,242,1);margin-right:5px;">
+            x
+            </button>
+        </div>
+    </div>
+</div>
+</div>
+

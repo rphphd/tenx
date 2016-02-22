@@ -1,0 +1,239 @@
+.transaction {
+  .transaction-summary {
+    @extend .port-summary;
+    section{
+      border-right: 0 none;
+      padding: 0;
+      text-align: left;
+      /*  &:nth-child(2){
+       @include col-wid(21%);
+      }
+      &:last-child{
+        @include col-wid(12%);
+      }*/
+      .label-check{
+        width: 92%;
+        white-space: normal;
+        i{
+          float: left;
+          margin-right: 9px;
+        }
+      }
+      &.col-md-2{
+        @media screen and (max-width:$break-xlarge){
+          float: left;
+          width: 31.667%;
+
+          &:nth-child(2), &:nth-child(5){
+            width: 36.6%;
+          }
+
+        }
+
+      }
+    }
+  }
+  @extend .portfolio;
+}
+
+.transaction-progress{
+  .transaction-white-wrap {
+    padding: 17px 24px 25px;
+    margin-bottom: 20px;
+  }
+  .container{
+    .col-md-8{
+      .transaction-white-wrap{
+        @media screen and (min-width:$break-xlarge){
+          height: 304px;
+        }
+        height: 268px;
+
+        padding: 17px 1px 18px 25px;
+        &:nth-child(2n){
+          @media screen and (min-width:$break-large){
+            margin-right: 40px;
+          }
+        }
+        @media screen and (max-width:$break-large){
+          height: auto;
+          margin-bottom: 0;
+          padding-bottom: 0;
+        }
+        div{
+          .pie{
+            @media screen and (min-width:$break-large){
+              float: right;
+
+            }
+          }
+        }
+        .pie{
+          @media screen and (max-width:$break-large){
+            float: left;
+          }
+          @media screen and (max-width: $break-medium){
+            margin-top: 0px;
+          }
+        }
+        .pieinfo{
+          @media screen and (max-width:$break-large){
+            float: right;
+          }
+        }
+      }
+      .col-md-6{
+        @media screen and (min-width:$break-xlarge){
+          width: 48.6%;
+        }
+      }
+    }
+    .col-md-4{
+      .transaction-white-wrap{
+        .calender{
+          @media screen and (min-width:$break-large) and (max-width:$break-xlarge){
+            margin-right: 40px;
+          }
+        }
+      }
+    }
+    .inv-contacts{
+    .contact {
+    width : 100%;
+    word-wrap : break-word;
+    }
+      div{
+        & + div{
+          @media screen and (max-width:$break-xlarge){
+           margin-top: 20px;
+          }
+        }
+      }
+    }
+  }
+  .label-check.sm{
+    width: 100%;
+    i{
+      width: 1.1em !important;
+      margin-top: 3px;
+      float: left;
+    }
+    .txt{
+      float: left;
+      width:85%;
+    }
+  }
+  .info-label{
+    white-space: nowrap;
+    @media screen and (max-width:520px){
+      width: 97% !important;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+  }
+}
+
+.selectprop{
+  .col-md-6{
+    @media screen and (min-width:$break-xlarge){
+      &:nth-child(2){
+        float: right;
+
+
+      }
+
+    }
+
+  }
+  .select-property{
+    background-color: $grey-lighter;
+    ul{
+      border:1px solid $blue;
+      background-color: $white;
+      width: 100%;
+      margin-top: 12px;
+      li{
+        width: 100%;
+        a{
+          color: $blue;
+
+          padding: 0 10px 0 0;
+          .caret{
+            float: right;
+            margin-top: 17px;
+          }
+          .txtprop{
+            width: 77%;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            display: inline-block;
+            vertical-align: middle;
+          }
+        }
+        ul{
+          &.dropdown-menu{
+            li{
+              a{
+                padding: 10px;
+              }
+            }
+          }
+        }
+      }
+    }
+#select-prop-dd-list {
+          overflow-y: auto;
+          max-height: 400px;
+      }
+    }
+
+}
+
+.cal-tooltip{
+  &.redbg{
+    background-color: $red;
+    opacity : 1;
+  }
+  &.bluebg{
+    background-color: $blue;
+    opacity : 1;
+  }
+  border-radius : 0px;
+  padding:14px 18px;
+  color: $white;
+  h6{ font-size: $font-size-sm !important; color: $white;}
+}
+
+.transaction-progress{
+.tooltip{
+   &.bottom{
+   .tooltip-arrow{
+    &.redbg{
+     border-bottom-color : $red;
+     }
+    &.bluebg{
+     border-bottom-color : $blue;
+   }
+   }
+  }
+&.in{
+opacity : 1 !important;
+}
+}
+
+.userActions{
+    color: #ff2a00 !important;
+    background: #ffaa99 !important;
+}
+.huActions{
+    color: #3e9de6 !important;
+    background: #b1dbf2 !important;
+}
+}
+.finprice {
+   text-align: right;
+}
+.lightred {
+    background-color: #fdf1ed !important;
+}

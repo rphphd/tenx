@@ -1,0 +1,269 @@
+.button--lg {
+  @include button-style("lg"); 
+}
+
+.button--md {
+  @include button-style("md"); 
+}
+
+.button--sm {
+  @include button-style("sm"); 
+}
+
+.button--xs {
+  @include button-style("xs");
+}
+
+.button--arrow {
+  @include button-style("arrow");
+}
+
+// Blue Buttons
+.button--blue {
+	border: 2px solid transparent;
+	color:$white;
+	background-color:$blue;
+	
+	&:hover {
+		background-color: transparent;
+		color: $blue;
+		border-color: $blue;
+	}	
+}
+.button--blue-border {
+	border: 2px solid $blue;
+	color: $blue;
+	background-color: transparent;
+	&:hover {
+		background-color: $blue;
+		color: $white;
+	}	
+}
+.button--blue-clear {
+	border: 2px solid transparent;
+	color:$blue;
+	background-color:transparent;
+	&:hover {
+		background-color: $blue;
+		color: $white;
+	}	
+}
+
+// Dark Blue Buttons
+.button--blue-dark {
+	border: 2px solid transparent;
+	color:$white;
+	background-color:$blue-dark;
+	&:hover {
+		background-color: transparent;
+		color: $blue-dark;
+		border-color: $blue-dark;
+	}	
+}
+.button--blue-dark-border {
+	border: 2px solid $blue-dark;
+	color: $blue-dark;
+	background-color: transparent;
+	&:hover {
+		background-color: $blue-dark;
+		color: $white;
+	}	
+}
+.button--blue-dark-clear {
+	border: 2px solid transparent;
+	color:$blue-dark;
+	background-color:transparent;
+	&:hover {
+		background-color: $blue-dark;
+		color: $white;
+	}	
+}
+
+// Green Buttons
+.button--green {
+	border: 2px solid transparent;
+	color:$white;
+	background-color: $green;
+	&:hover {
+		background-color: transparent;
+		color: $green;
+		border-color: $green;
+	}	
+}
+.button--green-border {
+	border: 2px solid $green;
+	color: $green;
+	background-color: transparent;
+	&:hover {
+		background-color: $green;
+		color: $white;
+	}	
+}
+.button--green-clear {
+	border: 2px solid transparent;
+	color:$green;
+	background-color:transparent;
+	&:hover {
+		background-color: $green;
+		color: $white;
+	}	
+}
+
+// Dark Gray Buttons
+.button--gray-dark { 
+	border: 2px solid transparent;
+	color:$white;
+	background-color: $gray-dark;
+	&:hover {
+		background-color: transparent;
+		color: $gray-dark;
+		border-color: $gray-dark;
+	}	
+}
+.button--gray-dark-border {
+	border: 2px solid $gray-dark;
+	color: $gray-dark;
+	background-color: transparent;
+	&:hover {
+		background-color: $gray-dark;
+		color: $white;
+	}	
+}
+.button--gray-dark-clear {
+	border: 2px solid transparent;
+	color:$gray-dark;
+	background-color:transparent;
+	&:hover {
+		background-color: $gray-dark;
+		color: $white;
+	}	
+}
+
+// Red Buttons
+.button--red { 
+	border: 2px solid transparent;
+	color:$white;
+	background-color: $red;
+	&:hover {
+		background-color: transparent;
+		color: $red;
+		border-color: $red;
+	}	
+}
+.button--red-border {
+	border: 2px solid $red;
+	color: $red;
+	background-color: transparent;
+	&:hover {  
+		background-color: $red;
+		color: $white;
+	}	
+}
+.button--red-clear {
+	border: 2px solid transparent;
+	color:$red;
+	background-color:transparent;
+	&:hover {
+		background-color: $red;
+		color: $white;
+	}	
+}
+
+// Silver Buttons
+.button--silver { 
+	border: 2px solid transparent;
+	color:$white;
+	background-color: $silver;
+	&:hover {
+		background-color: transparent;
+		color: $silver;
+		border-color: $silver;
+	}	
+}
+.button--silver-border {
+	border: 2px solid $silver;
+	color: $silver;
+	background-color: transparent;
+	&:hover {  
+		background-color: $silver;
+		color: $white;
+	}	
+}
+.button--silver-clear {
+	border: 2px solid transparent;
+	color:$silver;
+	background-color:transparent;
+	&:hover {
+		background-color: $silver;
+		color: $white;
+	}	
+}
+
+// Gray Buttons
+.button--gray { 
+	border: 2px solid transparent;
+	color:$white;
+	background-color: $gray;
+	&:hover {
+		background-color: transparent;
+		color: $gray;
+		border-color: $gray;
+	}	
+}
+.button--gray-border {
+	border: 2px solid $gray;
+	color: $gray;
+	background-color: transparent;
+	&:hover {  
+		background-color: $gray;
+		color: $white;
+	}	
+}
+.button--gray-clear {
+	border: 2px solid transparent;
+	color:$gray;
+	background-color:transparent;
+	&:hover {
+		background-color: $gray;
+		color: $white;
+	}	
+}
+
+// Black Buttons
+.button--black { 
+	border: 2px solid transparent;
+	color:$white;
+	background-color: $black;
+	&:hover {
+		background-color: transparent;
+		color: $black;
+		border-color: $black;
+	}	
+}
+.button--black-border {
+	border: 2px solid $black;
+	color: $black;
+	background-color: transparent;
+	&:hover {  
+		background-color: $black;
+		color: $white;
+	}	
+}
+.button--black-clear {
+	border: 2px solid transparent;
+	color:$black;
+	background-color:transparent;
+	&:hover {
+		background-color: $black;
+		color: $white;
+	}	
+}
+
+// Text Modifications
+.button--text-transform--none {
+	text-transform: none;
+}
+
+.button--text-align--left {
+	text-align: left;
+}

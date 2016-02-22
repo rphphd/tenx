@@ -1,0 +1,51 @@
+<div ng-include="'views/pbnav.html'" ></div>
+<div ng-include="'views/pbprog.html'" ></div>
+<div ng-controller="PortfolioCtrl" >
+  <hr id="topForWorkingPortfolio" style="margin:10px 0;"></hr>
+  <div ng-include="'views/workportfolio.html'" ></div>
+  <div class="row">
+    <div class="col-md-8">
+      <h1>Your {{ plan | invGoal }} Portfolio Summary</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-8">
+      <table style="width:90%;margin: 0 auto;text-align:center;margin-bottom:30px;">
+        <tr>
+          <td style="border: solid 1px;">
+            <div ng-include="'views/invmix.html'" ></div></td>
+          <td rowspan="2" style="border: solid 1px;background-color: rgb(216,216,216);">
+            <div ng-include="'views/projgrowth.html'" ></div></td>
+        </tr>
+        <tr>
+          <td style="border: solid 1px;">
+            <div style="min-height:150px;" ng-include="'views/markdist.html'" ></div></td>
+        </tr>
+      </table>
+
+      <section  >
+        <ul class="nav nav-tabs">
+          <li ng-class="{active:isSelected(1) }">
+            <a href ng-click="selectTab(1)">Portfolio Properties {{numProps>0 ? '('+ numProps + ')' : ''}}</a>
+          </li>
+          <li ng-class="{active:isSelected(2)  }">
+            <a href ng-click="selectTab(2)">Financial Details</a>
+          </li>
+        </ul>
+        <br />
+
+        <div ng-show="isSelected(1)" style="min-height:600px;">
+          <div ng-show="recommendations.length>0" ng-include="'views/proplist.html'" ></div>
+          <div ng-hide="recommendations.length>0"  ><p>You have no properties in your portfolio.</p></div>
+        </div>
+        <div ng-show="isSelected(2)" style="min-height:600px;">
+          <p>Financial Details Tab</p>
+        </div>
+        <br />
+      </section>
+    </div>
+  </div>
+
+</div>
+
+

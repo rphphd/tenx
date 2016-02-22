@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+  <!-- Generator: Adobe Illustrator 19.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+  <svg version="1.1" id="goLeft" ng-click="moveLeft()" ng-disabled="hideLeft"
+    ng-style="{'cursor' : leftCursor}" class="noSelect"
+    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+    width="40px" viewBox="-209 214 76 75" style="enable-background:new -209 214 76 75;" xml:space="preserve">
+  <g>
+    <ellipse  cx="-171" cy="251.5" rx="37.5" ry="37" style="fill:none;stroke:#3e9de6;stroke-miterlimit:10;"/>
+    <!--g>
+
+        <defs>
+          <rect id="SVGID_5_" x="-184.8" y="240.8" width="24.2" height="23.9"/>
+        </defs>
+        <clipPath id="SVGID_6_">
+          <use xlink:href="#SVGID_5_"  style="overflow:visible;"/>
+        </clipPath>
+        <path style="clip-path:url(#SVGID_6_);stroke:#3e9de6" d="M-165.9,259.5c0.3,0.3,0.3,0.8,0,1.2c-0.3,0.3-0.8,0.3-1.2,0l-9.5-9.4c-0.3-0.3-0.3-0.8,0-1.2l9.5-9.4
+          c0.3-0.3,0.8-0.3,1.2,0c0.3,0.3,0.3,0.8,0,1.2l-8.6,8.9L-165.9,259.5z"/-->
+        <path stroke="#3e9de6" stroke-width="1" d="M-165.9 259.5 c0.3 0.3 0.3 0.8 0 1.2 c-0.3 0.3 -0.8,0.3-1.2,0l-9.5-9.4c-0.3-0.3-0.3-0.8,0-1.2l9.5-9.4
+          c0.3-0.3,0.8-0.3,1.2,0c0.3,0.3,0.3,0.8,0,1.2l-8.6,8.9L-165.9,259.5z"/>
+
+    <!--/g-->
+  </g>
+  </svg>

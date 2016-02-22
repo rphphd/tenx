@@ -1,0 +1,101 @@
+.thumbnail--picture {
+	display: inline-block;
+	background-color: transparent;
+	background-repeat: no-repeat;
+	background-position: center center;
+	@include background-size(cover);
+	height: 57px;
+	width: 57px;
+	color: $white;
+	outline: 0;
+	* {
+		@include transition(all, $time: 0.25s, $ease: ease-in-out);
+	}
+}
+
+.thumbnail--overlay {	
+	.mask {
+		background-color: rgba(56, 134, 217, 0.8);
+		display: block;
+		width: 100%;
+		height: 100%;
+		.horizontal {
+			display: table;
+			height: 100%;
+			width: 100%;
+			.vertical {
+				display: table-cell;
+				text-align: center;
+				vertical-align: middle;
+				color: $white;
+				i {
+					display: block;
+					font-size: 19px;
+				}
+				.captoin {
+					display: block;
+					@include font-proxima($bold);
+					text-transform: uppercase;
+				}
+			}
+		}
+	}
+	&:hover, &:focus {
+		.mask {
+			background-color: rgba(255, 255, 255, 0.5);
+			.horizontal .vertical {
+				color: $blue;
+			}
+		}
+	}
+}
+
+ul.thumbnail--checkbox {
+
+	@extend %reset-list;
+	display: inline-block;
+	height: 70px;
+	li {
+		margin: 0px;
+		display: inline-block;
+		height: 100%; 
+		&:not(.checkbox-container){
+			.thumbnail--picture {
+				margin: 0px;
+				width: 90px;
+				height: 70px;
+			}
+			.thumbnail--overlay { 
+				.mask {
+					background-color: rgba(255, 255, 255, 0.3);
+					
+				}
+				&:hover, &:focus {
+					.mask {
+						background-color: rgba(56, 134, 217, 0.8);
+						.horizontal .vertical {
+							color: $white;
+						}
+					}
+				}
+			}
+		}		
+	}
+	.checkbox-container {
+		display: inline-block;
+		height: 100%;	
+		.horizontal { 
+			display: table;
+			height: 100%;			
+			.vertical {
+				display: table-cell;
+				text-align: center;
+				vertical-align: middle;	
+				input[type="checkbox"] {
+					
+				}
+			}
+		}
+	}
+	
+}

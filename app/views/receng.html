@@ -1,0 +1,53 @@
+<!--p>This is the receng view.</p-->
+<div ng-include="'views/pbnav.html'" ></div>
+<div ng-include="'views/pbprog.html'" ></div>
+<div ng-controller="RecengCtrl" >
+  <hr id="topForWorkingPortfolio" style="margin:10px 0;"></hr>
+  <div ng-include="'views/workportfolio.html'" ></div>
+  <div class="row">
+    <div class="col-md-8">
+      <h1>Recommended {{ plan | invGoal }} Portfolio</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div style="width:68%;padding-left:15px;">
+    <div ng-include="'views/modcriteria.html'" ></div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-8">
+      <table style="width:90%;margin: 0 auto;text-align:center;margin-bottom:30px;">
+        <tr>
+          <td style="border: solid 1px;">
+            <div ng-include="'views/invmix.html'" ></div></td>
+          <td rowspan="2" style="border: solid 1px;background-color: rgb(216,216,216);">
+            <div ng-include="'views/projgrowth.html'" ></div></td>
+        </tr>
+        <tr>
+          <td style="border: solid 1px;">
+            <div style="min-height:150px;" ng-include="'views/markdist.html'" ></div></td>
+        </tr>
+      </table>
+      <div ng-include="'views/proplist.html'" ></div>
+    </div>
+  </div>
+  <div id="bottomForWorkingPortfolio" class="row" style="margin-bottom:30px;">
+    <div class="col-md-12">
+      <div ng-include="'views/moreproperties.html'" ></div>
+    </div>
+  </div>
+  <div class="well well-lg">
+    <h6>What happens next?</h6>
+    <p>
+    You've already provided your pre-qualification documents.
+    </p>
+    <p>
+    <strong>The next step:</strong> HomeUnion will start bidding on the assets in your porfolio and work towards getting the best price possible.  We will send you an e-mail
+    letting you know more information about the next step.  Please make sure that you've
+    whitelisted <a href="mailto:info@homeunion.com">info@homeunion.com</a> to ensure you are
+    receiving our emails.
+    </p>
+    <button class=" button--xs button--blue" >What's next?
+    </button>
+  </div>
+</div>

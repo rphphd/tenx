@@ -1,0 +1,195 @@
+//colors
+$color_picton_blue_approx: #3e9de6;
+$concrete: #f2f2f2;
+$color_alto_approx: #ddd;
+$color_french_gray_approx: #d8d8d8;
+
+.performance {
+  float: left;
+  width: 100%;
+  .accordion-toggle[aria-expanded=true]{
+    i{
+      &::before{
+        content: "\f106" !important;
+      }
+    }
+  }
+  .selectprop{
+    .select-property {
+      background-color: $white;
+      ul {
+        margin-top: 0;
+      }
+    }
+
+  }
+  td h4 {
+    margin: 0;
+  }
+  span.txtprop {
+
+    @media screen and (max-width: $break-large) {
+      width: 70% !important;
+    }
+
+  }
+}
+
+
+.select-property-data {
+  margin-top: 15px;
+}
+.border--blue {
+  border-color: $color_picton_blue_approx !important;
+}
+h4 {
+  &.labelName {
+    margin-top: 13px;
+    margin-bottom: 0;
+  }
+  &.color--black {
+    text-transform: uppercase;
+  }
+}
+.income-exp-table-container {
+  clear: both;
+  .table {
+    th {
+      border: 0 none;
+    }
+    tr {
+      border: 0 none;
+    }
+    td {
+      border: 0 none;
+    }
+  }
+  tr h6.color--black {
+    text-transform: capitalize;
+  }
+}
+.investment-summary-conatainer {
+  background-color: $concrete;
+  .container {
+    padding-top: 2em;
+  }
+  th {
+    text-align: center;
+    padding: 18px !important;
+    border-bottom: 1px solid #ddd !important;
+  }
+  td {
+    .inner-table {
+      border: 1px solid $color_french_gray_approx;
+      padding: 5px 0;
+      padding-bottom: 0;
+    }
+    h6.color--blue-dark {
+      text-transform: capitalize;
+      text-align: center;
+    }
+    padding: 14px 18px 6px!important;
+  }
+  .thead {
+    &.col-md-12 {
+      border-bottom: 1px solid $color_french_gray_approx;
+      padding-bottom: 5px;
+      padding-top: 5px;
+    }
+    h4 {
+      margin-bottom: 0;
+    }
+  }
+  .property-thumbnail img {
+    width: 100px;
+  }
+  .table > tbody > tr > td {
+    border-top: 0 none;
+  }
+}
+.select-property select {
+  width: 100%;
+}
+tr.border--blue {
+  border-top: 1px solid $color_picton_blue_approx !important;
+  border-bottom: 1px solid $color_picton_blue_approx !important;
+  &.border-bottom {
+    border-top: 0 none !important;
+    border-bottom: 1px solid $color_picton_blue_approx !important;
+  }
+}
+.port-summary.container section {
+  text-align: center;
+  margin-top: 25px;
+}
+.row1.col-md-12 {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid $color_french_gray_approx;
+}
+.row2.col-md-12 {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: $concrete;
+}
+.inner-table .col-md-3 {
+  text-align: center;
+}
+
+//@extend-elements
+//original selectors
+//.custom-range-date-selector .button--sm, .custom-range-date-selector label
+%extend_1 {
+  font-family: $proximanova-font;
+  font-weight: $regular;
+  font-size: $font-size-xxs;
+  text-transform: capitalize;
+}
+
+#collapseOne--1 {
+  clear: both;
+}
+.calendar-icon {
+  width: 32px;
+  height: auto;
+  padding: 5px 0;
+  margin: 0 0 0 10px;
+}
+.custom-range-date-selector {
+  border: 1px solid $color_alto_approx;
+  margin: 0 7px;
+  padding: 10px 0;
+  padding-bottom: 0;
+  p {
+    padding: 0;
+    display: inline-block;
+    clear: both;
+    margin: 6px 0;
+    width: 48.9%;
+    padding-left: 6px;
+    &.action-buttons {
+      width: 100%;
+    }
+    select {
+      min-width: 10px !important;
+      padding: 5px 0;
+      margin: 0;
+      width: 57px;
+      font-weight: $regular;
+      font-size: $font-size-xxs;
+
+    }
+  }
+  .button--blue-border {
+    border: 1px solid $blue !important;
+  }
+  .button--sm {
+    @extend %extend_1;
+  }
+  label {
+    @extend %extend_1;
+  }
+}
+b.prop-label {
+  display: none;
+}

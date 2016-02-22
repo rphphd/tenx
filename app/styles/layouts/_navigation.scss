@@ -1,0 +1,126 @@
+/*navigation*/
+.navbar-default{
+  background-color: $blue-dark;
+  margin-top: 55px;
+  &.navbar-fixed-top{
+    z-index: 900;
+  }
+  .navbar-nav{
+    li{
+      &:first-child{
+        a{
+          @media screen and (min-width: $break-large){
+            padding-left: 0 !important;
+          }
+        }
+
+      }
+      a{
+        color:$gray;
+        @media screen and (max-width: $break-xlarge){
+          padding-right: 5px !important;
+        }
+
+        font:{
+          weight: $semi-bold;
+          size:$font-size-xs;
+        }
+        &:hover,&:focus,&:active{
+          color:$white;
+        }
+
+        @media screen and (min-width: $break-large){
+          font:{
+            weight: $semi-bold;
+            size:$font-size-xxs;
+          }
+        }
+
+      }
+
+    }
+    li.active{
+      a{
+        background-color: transparent;
+        color:$white;
+        &:hover,&:focus,&:active{
+          background-color: transparent;
+          color:$white;
+        }
+      }
+
+    }
+
+  }
+
+  @media screen and (max-width: $break-large){
+    margin-top: 55px !important;
+    border-bottom: 0 none;
+  }
+  .navbar-collapse {
+    max-height: 331px;
+    ul{
+      &:nth-child(2){
+        @media screen and (min-width: $break-large){
+         float: right;
+        }
+      }
+    }
+  }
+}
+
+.hu-header{
+  .navbar-nav,.user{
+    z-index: 9000;
+    li{
+      &.dropdown,&.open{
+        ul {
+          &.dropdown-menu {
+            background-color: $gray;
+            @include rounded-corners(0px);
+            @include box-shadow(0,0,0,0);
+            border:0 none;
+
+            li{
+              a{
+                color: $white;
+                padding-top: 10px;
+                padding-bottom: 10px;
+                &:hover,&:focus{
+                  color:$gray;
+                  background-color:$white;
+                }
+
+              }
+            }
+          }
+        }
+        a{
+          background-color: transparent;
+          &:focus,&:hover{
+            background-color: transparent;
+            color:$gray;
+          }
+        }
+      }
+      a{
+        font:{
+          weight: $regular;
+        }
+        > &:hover,&:focus{
+          color:$gray;
+          background-color: transparent;
+        }
+      }
+      &:hover,&:focus{
+        > a{
+          color:$gray;
+          background-color: transparent;
+        }
+
+      }
+
+    }
+  }
+}
+

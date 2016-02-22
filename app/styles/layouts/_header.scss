@@ -1,0 +1,74 @@
+header {
+	padding: 30px;
+}
+.logo-hu{
+  .main-logo{
+    display: block;
+    @media screen and (max-width:$break-large){
+      display: none;
+    }
+  }
+  .user{
+    display: none;
+    @media screen and (max-width:$break-large){
+      display: block;
+    }
+  }
+  .mobile-logo{
+    display: none;
+    @media screen and (max-width:$break-large){
+      display: inline-block;
+      margin: 0 auto;
+    }
+  }
+  .supportuser{
+    display: none;
+    @media screen and (max-width:$break-large){
+      display: block;
+    }
+  }
+  .signup-logo{
+    display: none;
+    @media screen and (max-width:$break-large){
+      padding:8px 14px;
+      display: block;
+    }
+  }
+
+}
+.hu-header{
+  background:{
+    color:$white;
+  }
+  .navbar-header{
+    margin-top:8px;
+  }
+
+  @media screen and (max-width:$break-large) {
+    border-bottom: 1px solid $blue;
+}
+
+}
+
+.logo-hu{
+  .supportuser,.user{
+    padding-left: 0;
+    margin-top: 8px;
+    margin-bottom: 0;
+    li{
+      width:100%;
+      float:left;
+      position: relative;
+      list-style: none;
+      a{
+        padding:14px 15px;
+      }
+    }
+  }
+  .supportuser{
+    li{
+      float: right;
+    }
+  }
+
+}

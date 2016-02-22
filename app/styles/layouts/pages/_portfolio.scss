@@ -1,0 +1,68 @@
+.portfolio {
+  .port-summary {
+    section {
+      text-align: center;
+      @include padding(20px 10px);
+      margin-bottom: 30px;
+      border-right: 1px solid $gray-light;
+      &:last-child {
+        border-right: 0 none;
+
+      }
+      @media screen and (max-width: $break-large) {
+        border-right: 0 none;
+      }
+    }
+  }
+  @media screen and (max-width: $break-xlarge) {
+    .col-md-2 {
+      width: 30.6667%;
+      float: left;
+    }
+  }
+}
+.my-performance{
+.list-group{
+  .list-group-item{
+   @include padding(10px 0);
+    border: 0 none;
+    h1,.netinc{
+      float: right;
+      margin-bottom: 0;
+      @media screen and (max-width: $break-large) {
+        font:{
+          size: $font-size-xs;
+          family: $proximanova-font;
+          weight: $regular;
+        }
+       }
+      }
+    }
+  }
+}
+
+.financial-summ{
+  table{
+    tbody{
+      tr{
+        td{
+          border-top: 0 none !important;
+          & + td{
+            text-align: right;
+            font-size: $font-size-xs;
+          }
+        }
+      }
+    }
+    thead{
+      tr{
+        th{
+          border-bottom: 1px solid $blue !important;
+          & + th{
+            text-align: right;
+          }
+        }
+      }
+    }
+  }
+}

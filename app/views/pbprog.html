@@ -1,0 +1,10 @@
+<div ng-controller="PbprogCtrl" class="collapse navbar-collapse">
+  <ul class="list-inline nav navbar-nav" style="width:90%;margin-left:5%;text-align:center;">
+    <li ng-repeat="step in steps" style="width:30%;">
+      <h6 ng-style="progressStyle(step)">
+      <i ng-class="progressCheck(step)" style="font-size:32px;vertical-align:middle;"></i>
+      {{ step }}
+      {{ (step.indexOf("Create") >=0 ? ( plan | invGoal )+" Plan" : "" ) }}
+      </h6></li>
+  </ul>
+</div>

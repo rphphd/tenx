@@ -1,0 +1,113 @@
+/*account settings form*/
+.personal-form{
+  .form-horizontal{
+    .form-group{
+      p{
+         color:$blue-color;
+        padding: 8px 0;
+        font-size: $font-size-xs;
+
+      }
+      select{
+        width:100%;
+      }
+      input,select{
+        color: $blue;
+        font-weight: $regular;
+        &::-moz-placeholder{
+          color: $blue;
+        }
+      }
+      .control-label{
+        @media screen and (max-width: $break-xlarge) {
+         float: left;
+        }
+      }
+    }
+    .action-button{
+      position: relative;
+      float: right;
+      .update{
+        position: absolute;
+        top:-19.7em;
+        right: 0;
+        @media screen and (max-width: $break-large) {
+            position: static;
+            margin: 20px auto 0px;
+          text-align: center;
+        }
+      }
+      .save-cancel{
+        position: absolute;
+        top:-19.5em;
+        right: 0;
+        @media screen and (max-width: $break-large) {
+          position: static;
+          margin: 20px auto 0px;
+        }
+      }
+      @media screen and (max-width: $break-large) {
+        float: none;
+      }
+    }
+  }
+  .notentered{
+    color: $gray !important;
+  }
+}
+.change-pass{
+  .action-button{
+    position: relative;
+    button{
+      position: absolute;
+      top:-12.6em;
+      right: 0;
+      @media screen and (max-width: $break-large) {
+        position: static;
+        margin: 20px auto 0px;
+      }
+    }
+  }
+
+  .form-horizontal{
+    .form-group:first-child{
+      margin-bottom: 40px;
+      @media screen and (max-width: $break-large) {
+        margin-bottom: 15px;
+      }
+    }
+  }
+}
+.container-table{
+  display: table;
+}
+.vertical-center-row{
+  display: table-cell;
+  vertical-align: middle;
+}
+.new-pass{
+  .input-icon{
+    input{
+      width: 100%; display: inline-block;
+
+    }
+    i{
+      color: $blue-dark;
+      right: 24px;
+      @media screen and (min-width: $break-xlarge) {
+        right: -12px;
+
+      }
+    }
+  }
+  a{
+    display: inline-block;
+  }
+  @media screen and (max-width: $break-xlarge){
+
+      input{width: 97%}
+      a{
+        display: inline-block;
+      }
+  }
+}

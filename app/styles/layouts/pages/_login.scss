@@ -1,0 +1,81 @@
+.login-wrap {
+  background:{
+    image: url('../../assets/images/embrace-bg.png');
+    repeat: no-repeat;
+    attachment: fixed;
+    position: center center;
+  }
+  @include background-size(cover);
+}
+.login-con{
+  background: rgba(255, 255, 255, 10);
+  border: 16px solid rgba(91, 108, 144, 0.2);
+    margin: 85px auto 60px;
+    width: 430px;
+    position: relative;
+  .remember-me{
+/*    background-color: $gray-cool;*/
+    background: rgba(91, 108, 144, 0.1);
+    padding:18px 27px;
+    width: 100%;
+    label{
+      font-weight: $regular;
+    }
+    .forgot{
+      float:right;
+      @media screen and (max-width: $break-medium){
+        float: none;
+        margin-top: 15px;
+      }
+    }
+    @media screen and (max-width: $break-medium){
+      text-align: center;
+    }
+  }
+  .login-inner{
+    padding: 36px 28px 10px;
+
+  }
+  .login-heading{
+    position: relative;
+    margin-bottom: 25px;
+    margin-top: 8px;
+    h1{
+      font-family:$secondary-font;
+      position: relative;
+      /*z-index: 1000; */
+    }
+
+  }
+
+    .input-icon{
+      position: relative;
+      margin: 27px 0;
+      i{
+        color:$gray-dark;
+        display: block;
+        font-size: 16px;
+        height: 16px;
+        margin: 9px 2px 4px 10px;
+        position: absolute;
+        text-align: center;
+        width: 16px;
+        right: 8px;
+        top: 0;
+      }
+      input{
+        padding-left: 14px;
+        background: rgba(91, 108, 144, 0.2);
+        border: 0 none;
+        color: $black;
+        &::-moz-placeholder{
+          color: $gray-dark !important;
+        }
+      }
+    }
+  @media screen and (max-width: $break-medium){
+    width: 100%;
+
+  }
+  }
+

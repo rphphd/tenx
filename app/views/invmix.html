@@ -1,0 +1,15 @@
+<!--img src="images/stubimages/invmix.png"  style="height:150px;"/-->
+<div ng-controller="InvmixCtrl" style="width:324px;" >
+<div class="col-md-12"><h6 style="text-align:left;margin-top:10px;">Investment Mix</h6></div>
+<ul class="list-inline" style="margin-left:0;">
+  <li ng-repeat="nh in nhClasses" style="vertical-align:bottom;">
+  {{ nhCounts[nh]>0 ? nhCounts[nh] : ""}}
+  <div style="background-color:#{{(nhCounts[nh]>0) ? nhColors[nh].hex : nhColors[nh].lgtHex }};color:white;min-width: 55px; min-height:{{(nhCounts[nh]>0) ? 80 : 30 }}px;vertical-align:bottom;padding-top:{{(nhCounts[nh]>0) ? 5 : 10 }}%;">
+  <div ><img src="images/isHouse_with_door.svg" ng-show="nhCounts[nh]>0"/>
+  <p ng-show="nhCounts[nh]>0" style="min-height:21px;margin:0;">&nbsp;</p>
+  {{nhColors[nh].title}}</div>
+  </div>
+  </li>
+</ul>
+<p>Properties by Neighborhood Rating </p>
+</div>

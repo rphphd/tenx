@@ -1,0 +1,349 @@
+/*
+ * jQuery FlexSlider v2.6.0
+ * http://www.woothemes.com/flexslider/
+ *
+ * Copyright 2012 WooThemes
+ * Free to use under the GPLv2 and later license.
+ * http://www.gnu.org/licenses/gpl-2.0.html
+ *
+ * Contributing author: Tyler Smith (@mbmufffin)
+ *
+ */
+
+/* ====================================================================================================================
+ * RESETS
+ * ====================================================================================================================*/
+//@extend-elements
+//original selectors
+//.slides, .slides >li, .flex-control-nav, .flex-direction-nav
+%extend_1 {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+
+.slides {
+  @extend %extend_1;
+  > li {
+    @extend %extend_1;
+  }
+}
+.flex-control-nav {
+  @extend %extend_1;
+}
+.flex-direction-nav {
+  @extend %extend_1;
+}
+.flex-container a:hover {
+  outline: none;
+}
+.flex-slider a:hover {
+  outline: none;
+}
+.flex-pauseplay span {
+  text-transform: capitalize;
+}
+/* ====================================================================================================================
+ * BASE STYLES
+ * ====================================================================================================================*/
+.flexslider {
+  margin: 0;
+  padding: 0;
+  .slides {
+    > li {
+      display: none;
+      position:relative;
+
+    }
+    img {
+      width: 100%;
+      height: 57px;
+      display: block;
+    }
+    &:after {
+      content: "\0020";
+      display: block;
+      clear: both;
+      visibility: hidden;
+      line-height: 0;
+      height: 0;
+    }
+  }
+  .thumbs{
+  
+   > li{
+   		&.flex-active-slide{
+   		.pre-select-flag{
+   		img{
+   		
+   		 border: 0 none !important;
+   		
+   		}
+   		}
+       img{
+         border: 2px solid $blue ;
+         background-color: transparent;
+       }
+
+       .thumbnail--picture{
+        border: 2px solid $blue ;
+       }       
+
+     }
+      img{
+        height: 57px !important;
+        width:62px !important;
+      }
+     &:hover{
+       cursor: pointer;
+     }
+     .imgOverlay {
+       position: relative;
+
+       .pre-select-flag{
+         position: absolute;
+         left: 0;
+         top: 0;
+         img{
+           height: auto !important;
+           width:auto!important;
+         }
+
+       }
+     }
+    }
+    &.flex-active-slide{
+      img{
+        border: 1px inset $blue !important;
+      }
+    }
+
+  }
+}
+html[xmlns] .flexslider .slides {
+  display: block;
+}
+* html .flexslider .slides {
+  height: 1%;
+}
+.no-js .flexslider .slides > li:first-child {
+  display: block;
+}
+/* ====================================================================================================================
+ * DEFAULT THEME
+ * ====================================================================================================================*/
+//colors
+$black_20: rgba(0, 0, 0, 0.2);
+$black_80: rgba(0, 0, 0, 0.8);
+$white_30: rgba(255, 255, 255, 0.3);
+$black: #000;
+$color_storm_dust_approx: #666;
+$black_50: rgba(0, 0, 0, 0.5);
+$black_30: rgba(0, 0, 0, 0.3);
+$color_mine_shaft_approx: #333;
+$black_70: rgba(0, 0, 0, 0.7);
+$black_90: rgba(0, 0, 0, 0.9);
+
+//fonts
+$font_0: flexslider-icon;
+
+.flexslider {
+  margin: 0 0 -38px;
+  background: $white;
+  border: 4px solid $white;
+  position: relative;
+  zoom: 1;
+  //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+  border-radius: 4px;
+  //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+  box-shadow: '' 0 1px 4px $black_20;
+  .slides {
+    zoom: 1;
+    img {
+      height: 363px;
+    }
+  }
+  &:hover .flex-direction-nav {
+    .flex-prev {
+      opacity: 1;
+      text-indent: -9999px;
+      background: url("../../assets/images/prev.png") no-repeat center;
+      left: -1px;
+      &:hover {
+        opacity: 1;
+      }
+    }
+    .flex-next {
+      opacity: 1;
+      text-indent: 9999px;
+      background: url("../../assets/images/next.png") no-repeat center;
+      right: -1px;
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+}
+.flex-viewport {
+  max-height: 2000px;
+  //Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+  transition: all 1s ease;
+}
+.flex-direction-nav {
+  *height: 0;
+  a {
+    text-decoration: none;
+    display: block;
+    width: 40px;
+    height: 40px;
+    margin: -20px 0 0;
+    position: absolute;
+    top: 50%;
+    z-index: 10;
+    overflow: hidden;
+    opacity: 0;
+    cursor: pointer;
+    color: $black_80;
+    //Instead of the line below you could use @include text-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+    text-shadow: 1px 1px 0 $white_30;
+    //Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+    transition: all 0.3s ease-in-out;
+    &:before {
+/*      font-family: $font_0;*/
+      font-size: 40px;
+      display: inline-block;
+/*      content: '\f001';*/
+      color: $black_80;
+      //Instead of the line below you could use @include text-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+      text-shadow: 1px 1px 0 $white_30;
+    }
+    &.flex-next:before {
+    /*  content: '\f002';*/
+    }
+  }
+  .flex-prev {
+    left: -50px;
+    text-indent: -9999px;
+
+  }
+  .flex-next {
+    right: -50px;
+    text-align: right;
+    text-indent: 9999px;
+  }
+  .flex-disabled {
+    opacity: 0!important;
+    filter: alpha(opacity=0);
+    cursor: default;
+    z-index: -1;
+  }
+}
+.flex-control-nav {
+  width: 100%;
+  position: absolute;
+  bottom: -40px;
+  text-align: center;
+  li {
+    margin: 0 6px;
+    display: inline-block;
+    zoom: 1;
+    *display: inline;
+  }
+}
+.flex-control-thumbs {
+  margin: 5px 0 0;
+  position: static;
+  overflow: hidden;
+  li {
+    width: 25%;
+    float: left;
+    margin: 0;
+  }
+  img {
+    width: 100%;
+    height: auto;
+    display: block;
+    opacity: .7;
+    cursor: pointer;
+    //Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+    transition: all 1s ease;
+    &:hover {
+      opacity: 1;
+    }
+  }
+  .flex-active {
+    opacity: 1;
+    cursor: default;
+  }
+}
+.loading .flex-viewport {
+  max-height: 300px;
+}
+.carousel li {
+  margin-right: 5px;
+}
+.flex-pauseplay a {
+  display: block;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  bottom: 5px;
+  left: 10px;
+  opacity: 0.8;
+  z-index: 10;
+  overflow: hidden;
+  cursor: pointer;
+  color: $black;
+  &:before {
+    font-family: $font_0;
+    font-size: 20px;
+    display: inline-block;
+/*    content: '\f004';*/
+  }
+  &:hover {
+    opacity: 1;
+  }
+  &.flex-play:before {
+/*    content: '\f003';*/
+  }
+}
+.flex-control-paging li a {
+  width: 11px;
+  height: 11px;
+  display: block;
+  background: $color_storm_dust_approx;
+  background: $black_50;
+  cursor: pointer;
+  text-indent: -9999px;
+  //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+  box-shadow: inset 0 0 3px $black_30;
+  //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+  border-radius: 20px;
+  &:hover {
+    background: $color_mine_shaft_approx;
+    background: $black_70;
+  }
+  &.flex-active {
+    background: $black;
+    background: $black_90;
+    cursor: default;
+  }
+}
+/* ====================================================================================================================
+ * RESPONSIVE
+ * ====================================================================================================================*/
+@media screen and (max-width: 860px) {
+.flex-direction-nav {
+  .flex-prev {
+    opacity: 1;
+    left: 10px;
+    text-indent: -9999px;
+  }
+  .flex-next {
+    opacity: 1;
+    right: 10px;
+    text-indent: 9999px;
+  }
+}
+}

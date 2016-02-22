@@ -1,0 +1,776 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for scripts/services/investmentService.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">all files</a> / <a href="index.html">scripts/services/</a> investmentService.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">23.36% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>32/137</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">12% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>3/25</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">2.78% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>1/36</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">23.88% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>32/134</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'use strict';
+&nbsp;
+/**
+ * @ngdoc service
+ * @name re2App.investment
+ * @description
+ * # investment
+ * Service in the re2App.
+ */
+ angular.module('re2App')
+ .service('investmentService', function(_,$rootScope,propertyService,
+      localStorageService) {
+&nbsp;
+  var investorSearchParameters = {
+        riskTolerance        : 1,
+				investmentAmount     : 25000,
+				financing            : 'financed',
+				investmentGoal       : 'appreciation'
+	};
+&nbsp;
+  var locations = ['Any HomeUnion Investment Properties'];
+  var neighborhoods = [
+    { name: 'Lux', selected: true },
+    { name: 'A',   selected: true },
+    { name: 'B',   selected: true },
+    { name: 'C',   selected: true }
+  ];
+  var theProperties = null;
+  var portfolio = [];
+&nbsp;
+  <span class="missing-if-branch" title="if path not taken" >I</span>if (localStorageService.existsKey('investorSearchParameters')) {
+<span class="cstat-no" title="statement not covered" >    investorSearchParameters = localStorageService.getValue('investorSearchParameters');</span>
+  }
+&nbsp;
+  <span class="missing-if-branch" title="if path not taken" >I</span>if (localStorageService.existsKey('locations')) {
+<span class="cstat-no" title="statement not covered" >    locations = localStorageService.getValue('locations');</span>
+  }
+&nbsp;
+  <span class="missing-if-branch" title="if path not taken" >I</span>if (localStorageService.existsKey('neighborhoods')) {
+<span class="cstat-no" title="statement not covered" >    neighborhoods = localStorageService.getValue('neighborhoods');</span>
+  }
+&nbsp;
+  $rootScope.haveRecommendations = propertyService.getProperties()
+    .properties.then(<span class="fstat-no" title="function not covered" >function(result){</span>
+<span class="cstat-no" title="statement not covered" >      theProperties = result;</span>
+<span class="cstat-no" title="statement not covered" >      searchProperties();</span>
+<span class="cstat-no" title="statement not covered" >      var recSet = _.filter(theProperties,{recommended: true});</span>
+<span class="cstat-no" title="statement not covered" >      return recSet;</span>
+  });
+&nbsp;
+  var searchProperties = <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >    var fc = investorSearchParameters.financing;</span>
+<span class="cstat-no" title="statement not covered" >    var ig = investorSearchParameters.investmentGoal;</span>
+<span class="cstat-no" title="statement not covered" >    var qualProps = _.reject(theProperties, <span class="fstat-no" title="function not covered" >function(p){</span></span>
+<span class="cstat-no" title="statement not covered" >      return typeof p[ig] === 'undefined';</span>
+    });
+<span class="cstat-no" title="statement not covered" >    console.log('qual properties');</span>
+<span class="cstat-no" title="statement not covered" >    qualProps = _.filter(qualProps,<span class="fstat-no" title="function not covered" >function(q){</span></span>
+<span class="cstat-no" title="statement not covered" >      var res = false;</span>
+<span class="cstat-no" title="statement not covered" >      var thisNh = q.nirclass.substr(0,1).toUpperCase();</span>
+<span class="cstat-no" title="statement not covered" >      if (thisNh === 'L') {<span class="cstat-no" title="statement not covered" >thisNh = 'Lux';}</span></span>
+<span class="cstat-no" title="statement not covered" >      if ( _.find(neighborhoods,{name : thisNh}).selected) { <span class="cstat-no" title="statement not covered" >res = true; </span>}</span>
+<span class="cstat-no" title="statement not covered" >      return res;</span>
+    });
+<span class="cstat-no" title="statement not covered" >    var totInv = 0;</span>
+<span class="cstat-no" title="statement not covered" >    for (var i=0;i&lt;qualProps.length;i++) {</span>
+<span class="cstat-no" title="statement not covered" >      if (totInv+qualProps[i].minInvestment[fc] &lt;</span>
+            investorSearchParameters.investmentAmount) {
+<span class="cstat-no" title="statement not covered" >          totInv+=qualProps[i].minInvestment[fc];</span>
+<span class="cstat-no" title="statement not covered" >          qualProps[i].recommended = true;</span>
+&nbsp;
+      }
+    }
+    //console.log('qual properties',fc, ig, _.filter(qualProps,{recommended:true}));
+  };
+&nbsp;
+	this.getInvPlan = <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >		return investorSearchParameters.investmentGoal ;</span>
+	};
+&nbsp;
+	this.setInvPlan = <span class="fstat-no" title="function not covered" >function (invPlan) {</span>
+<span class="cstat-no" title="statement not covered" >		investorSearchParameters.investmentGoal=invPlan;</span>
+<span class="cstat-no" title="statement not covered" >		localStorageService.setValue('investorSearchParameters',investorSearchParameters);</span>
+	};
+&nbsp;
+	this.getFinancing = <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >		return investorSearchParameters.financing ;</span>
+	};
+&nbsp;
+	this.setFinancing = <span class="fstat-no" title="function not covered" >function (financing) {</span>
+<span class="cstat-no" title="statement not covered" >		investorSearchParameters.financing=financing;</span>
+<span class="cstat-no" title="statement not covered" >		localStorageService.setValue('investorSearchParameters',investorSearchParameters);</span>
+	};
+&nbsp;
+	this.getInvParms = <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >	  return investorSearchParameters;</span>
+	};
+&nbsp;
+	this.setInvParms = <span class="fstat-no" title="function not covered" >function (parms) {</span>
+<span class="cstat-no" title="statement not covered" >		investorSearchParameters=parms;</span>
+<span class="cstat-no" title="statement not covered" >		localStorageService.setValue('investorSearchParameters',investorSearchParameters);</span>
+	};
+&nbsp;
+	this.getLocations = <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >	  return locations;</span>
+	};
+&nbsp;
+	this.setLocations = <span class="fstat-no" title="function not covered" >function (locs) {</span>
+<span class="cstat-no" title="statement not covered" >		locations=locs;</span>
+<span class="cstat-no" title="statement not covered" >		localStorageService.setValue('locations',investorSearchParameters);</span>
+	};
+&nbsp;
+	this.getNeighborhoods = <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >	  return neighborhoods;</span>
+	};
+&nbsp;
+	this.setNeighborhoods = <span class="fstat-no" title="function not covered" >function (nh) {</span>
+<span class="cstat-no" title="statement not covered" >		neighborhoods=nh;</span>
+<span class="cstat-no" title="statement not covered" >		localStorageService.setValue('neighborhoods',neighborhoods);</span>
+	};
+&nbsp;
+	this.getPortfolio = <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >	  return portfolio;</span>
+	};
+&nbsp;
+	this.setPortfolio = <span class="fstat-no" title="function not covered" >function (pfolio) {</span>
+<span class="cstat-no" title="statement not covered" >	  portfolio = pfolio;</span>
+<span class="cstat-no" title="statement not covered" >	  $rootScope.portfolioChange = true;</span>
+	};
+&nbsp;
+	this.addToPortfolio = <span class="fstat-no" title="function not covered" >function (property) {</span>
+<span class="cstat-no" title="statement not covered" >	  portfolio.push(property);</span>
+<span class="cstat-no" title="statement not covered" >	  $rootScope.portfolioChange = true;</span>
+	};
+&nbsp;
+	this.deleteFromPortfolio = <span class="fstat-no" title="function not covered" >function (pid) {</span>
+<span class="cstat-no" title="statement not covered" >	  portfolio = _.reject(portfolio, { pid : pid });</span>
+<span class="cstat-no" title="statement not covered" >	  $rootScope.portfolioChange = true;</span>
+	};
+&nbsp;
+	this.inPortfolio = <span class="fstat-no" title="function not covered" >function (pid) {</span>
+<span class="cstat-no" title="statement not covered" >	  var res=false;</span>
+<span class="cstat-no" title="statement not covered" >	  var propToFind = _.find(portfolio,<span class="fstat-no" title="function not covered" >function(prop){</span></span>
+<span class="cstat-no" title="statement not covered" >	    return prop.pid === pid;</span>
+	  });
+<span class="cstat-no" title="statement not covered" >	  if (typeof  propToFind !== 'undefined') { <span class="cstat-no" title="statement not covered" >res = true; </span>}</span>
+<span class="cstat-no" title="statement not covered" >	  return res;</span>
+	};
+&nbsp;
+	this.orderBy = <span class="fstat-no" title="function not covered" >function (properties,field) {</span>
+<span class="cstat-no" title="statement not covered" >    var fc = investorSearchParameters.financing;</span>
+<span class="cstat-no" title="statement not covered" >	  var ordered = _.sortBy(properties, <span class="fstat-no" title="function not covered" >function(r) {</span></span>
+<span class="cstat-no" title="statement not covered" >      switch (field) {</span>
+        case 'PRICE'             : <span class="cstat-no" title="statement not covered" >return r.price;</span>
+        case 'INVESTMENT'        : <span class="cstat-no" title="statement not covered" >return r.minInvestment[fc];</span>
+        case 'MARKET'            : <span class="cstat-no" title="statement not covered" >return r.nirclass;</span>
+        case 'NEIGHBORHOOD'      : <span class="cstat-no" title="statement not covered" >return r.nirclass;</span>
+        case 'APPRECIATION'      : <span class="cstat-no" title="statement not covered" >return r.ApprReturn[fc];</span>
+        case 'CASH ON CASH'      : <span class="cstat-no" title="statement not covered" >return r.cashOnCash;</span>
+        case 'YIELD'             : <span class="cstat-no" title="statement not covered" >return '';</span>
+        case 'REALestimate\u2122': <span class="cstat-no" title="statement not covered" >return r.REALestimate[fc];</span>
+        case 'TOTAL RETURN'      : <span class="cstat-no" title="statement not covered" >return r.TotalReturn[fc];</span>
+      }
+    });
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    return ordered;</span>
+  };
+&nbsp;
+  this.swapProperties = <span class="fstat-no" title="function not covered" >function (pid) {</span>
+    //console.log('swapProperties',pid,theProperties.length,theProperties);
+<span class="cstat-no" title="statement not covered" >    var oneToSwap = _.find(theProperties,{pid: pid});</span>
+<span class="cstat-no" title="statement not covered" >    oneToSwap.rejected=true;</span>
+<span class="cstat-no" title="statement not covered" >    oneToSwap.recommended=false;</span>
+<span class="cstat-no" title="statement not covered" >    this.deleteFromPortfolio(pid);</span>
+<span class="cstat-no" title="statement not covered" >    var remaining = _.filter(theProperties, <span class="fstat-no" title="function not covered" >function (r) {</span></span>
+<span class="cstat-no" title="statement not covered" >      return !r.rejected &amp;&amp; !r.recommended;</span>
+    });
+    //console.log('swap properties',pid,remaining.length,remaining,theProperties.length,theProperties);
+<span class="cstat-no" title="statement not covered" >    var newOne = _.sample(remaining,1)[0].pid;</span>
+<span class="cstat-no" title="statement not covered" >    console.log('newOne',newOne);</span>
+<span class="cstat-no" title="statement not covered" >    _.find(theProperties,{pid : newOne}).recommended = true;</span>
+<span class="cstat-no" title="statement not covered" >    var nextRecommendation = _.filter(theProperties, <span class="fstat-no" title="function not covered" >function (r) {</span></span>
+<span class="cstat-no" title="statement not covered" >      return r.recommended;</span>
+    });
+<span class="cstat-no" title="statement not covered" >    return nextRecommendation;</span>
+  };
+&nbsp;
+  this.deleteProperty = <span class="fstat-no" title="function not covered" >function (pid) {</span>
+<span class="cstat-no" title="statement not covered" >    _.find(theProperties,{pid : pid}).recommended = false;</span>
+<span class="cstat-no" title="statement not covered" >    this.deleteFromPortfolio(pid);</span>
+<span class="cstat-no" title="statement not covered" >    var updatedRecommendation = _.filter(theProperties, <span class="fstat-no" title="function not covered" >function (r) {</span></span>
+<span class="cstat-no" title="statement not covered" >      return r.recommended;</span>
+    });
+<span class="cstat-no" title="statement not covered" >    return updatedRecommendation;</span>
+  };
+&nbsp;
+  this.addPropertyToRecommended = <span class="fstat-no" title="function not covered" >function(pid) {</span>
+<span class="cstat-no" title="statement not covered" >    console.log('addPropertyToRecommended pid',pid);</span>
+<span class="cstat-no" title="statement not covered" >    propertyService.theInventory.then(<span class="fstat-no" title="function not covered" >function(results){</span></span>
+<span class="cstat-no" title="statement not covered" >      console.log('addPropertyToRecommended results',results.length,_.find(results,{pid : pid}));</span>
+<span class="cstat-no" title="statement not covered" >      theProperties.push(</span>
+        propertyService.addNewProperty( _.find(results,{pid : pid}) )
+      );
+    });
+<span class="cstat-no" title="statement not covered" >    $rootScope.addedRecommendations = true;</span>
+  };
+&nbsp;
+  this.getRecommendationUpdate = <span class="fstat-no" title="function not covered" >function () {</span>
+    //console.log('getRecommendationUpdate', theProperties.length, theProperties);
+<span class="cstat-no" title="statement not covered" >    var updatedRecommendation = _.filter(theProperties, <span class="fstat-no" title="function not covered" >function (r) {</span></span>
+<span class="cstat-no" title="statement not covered" >      return r.recommended;</span>
+    });
+<span class="cstat-no" title="statement not covered" >    console.log('updatedRecommendation',updatedRecommendation);</span>
+<span class="cstat-no" title="statement not covered" >    return updatedRecommendation;</span>
+  };
+&nbsp;
+  this.resetRecommendations = <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >      console.log('resetRecommendations', theProperties.length, theProperties);</span>
+<span class="cstat-no" title="statement not covered" >      _.forEach(theProperties,<span class="fstat-no" title="function not covered" >function(r){</span></span>
+<span class="cstat-no" title="statement not covered" >        r.recommended = false;</span>
+      });
+<span class="cstat-no" title="statement not covered" >      searchProperties();</span>
+<span class="cstat-no" title="statement not covered" >      var portfolioPids = _.pluck(portfolio,'pid');</span>
+<span class="cstat-no" title="statement not covered" >      var newRecommendations = _.reject(</span>
+        _.filter(theProperties,{recommended:true}),
+<span class="fstat-no" title="function not covered" >        function(p){</span> <span class="cstat-no" title="statement not covered" >return portfolioPids.indexOf(p.pid)&gt;=0; </span>}
+      );
+<span class="cstat-no" title="statement not covered" >      _.forEach(newRecommendations,<span class="fstat-no" title="function not covered" >function(r){</span></span>
+<span class="cstat-no" title="statement not covered" >        _.find(theProperties,{pid: r.pid}).selected=true;</span>
+      });
+<span class="cstat-no" title="statement not covered" >      console.log('newRecommendations',newRecommendations);</span>
+<span class="cstat-no" title="statement not covered" >      $rootScope.addedRecommendations = true;</span>
+<span class="cstat-no" title="statement not covered" >      $rootScope.portfolioChange = true;</span>
+<span class="cstat-no" title="statement not covered" >      $rootScope.invMixChg = true;</span>
+  };
+&nbsp;
+});
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sat Feb 20 2016 08:25:45 GMT-0800 (PST)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>

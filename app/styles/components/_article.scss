@@ -1,0 +1,416 @@
+.property-listing {
+	font-size: 0;
+
+	.listing {
+		outline: 0;
+		float: none;
+		margin: 0 0 20px;
+		position: relative;
+		vertical-align: top;
+		display: inline-block;
+		text-decoration: none;
+		font-size: $font-size-xxs;
+
+		@media(max-width:480px){
+			width: 100%;
+		}
+
+		select {
+			width: 100%;
+			display: block;
+			margin: 0 0 5px;
+			color: $blue-dark;
+			position: relative;
+			padding: 5px 20px 5px 5px;
+			border: 1px solid $blue-dark;
+			background: #fff url(../images/select-bg-blue-dark.png) right 10px center no-repeat;
+			background-size: 8px;
+
+			-webkit-appearance: none;
+			-webkit-border-radius: 0;
+			-moz-border-radius: 0;
+			border-radius: 0;
+		}
+
+		&.standard:before,
+		&.watch:before,
+		.watch:before {
+			top: 0;
+			left: 20px;
+			content: '';
+			width: 31px;
+			height: 32px;
+			position: absolute;
+			display: inline-block;
+			background: url(../images/article-clip--blue-lock.png) center top no-repeat;
+		}
+		&.watch:before,
+		.watch:before {
+			width: 20px;
+			height: 21px;
+			background-image: url(../images/article-clip--green-eye.png);
+		}
+
+		b {
+			display: block;
+			padding: 0 0 3px;
+			color: $blue-dark;
+			font-size: $font-size-xs;
+			text-transform: uppercase;
+
+			&.properties {
+				color: $blue;
+				text-transform: none;
+			}
+		}
+
+		span {
+			color: $gray;
+			padding: 15px;
+			display: block;
+			overflow: hidden;
+			background: $gray-light;
+
+			&.image {
+				padding: 50% 0 0;
+				position: relative;
+				background-size: cover;
+				background-position: center center;
+			}
+			&.info {
+				top: 0;
+				right: 0;
+				height: 100%;
+				padding: 10px;
+				color: $white;
+				position: absolute;
+				display: inline-block;
+				background: $blue-dark;
+			}
+		}
+		.button-set {
+			width: 100%;
+			display: table;
+			padding: 8px 0 0;
+
+			a {
+				padding: 0.5em 0;
+				font-weight: bold;
+				text-align: center;
+				display: table-cell;
+
+				&.more {
+					color: $white;
+					background: $blue;
+				}
+				&.watch {
+					color: $green;
+				}
+			}
+		}
+
+		.border {
+			padding: 0;
+		}
+
+		// Status
+		.status {
+			color: $white;
+			line-height: 1em;
+			background: $blue;
+			position: relative;
+			padding: 1.5em 15px;
+			font-size: $font-size-xs;
+			text-transform: uppercase;
+		}
+		&.rejected {
+			.status {
+				background: $red;
+			}
+		}
+		&.countered {
+			.status {
+				background: $green;
+				padding: 1em 15px;
+			}
+		}
+
+		// Info Lists
+		ul {
+			margin: 0;
+			padding: 0;
+			display: block;
+			list-style: none;
+		}
+		li {
+			display: block;
+			padding: 3px 0;
+
+			&:after {
+				content: '';
+				clear: both;
+				display: table;
+			}
+
+			span {
+				padding: 0;
+				float: right;
+				display: inline-block;
+			}
+		}
+	}
+
+	// My Portfolio
+	&.my-portfolio {
+		a.listing {
+			span {
+				background: $white;
+			}
+		}
+		a.progress-close {
+			.status {
+				padding: 1em 15px;
+				background: $red;
+			}
+		}
+		a.progress-far,
+		a.pending {
+			.status {
+				padding: 1em 15px;
+				background: $blue;
+			}
+		}
+		a.rental {
+			.status {
+				background: $green;
+			}
+		}
+		a.vacant {
+			.status {
+				background: $gray;
+			}
+		}
+	}
+
+	.status {
+		i {
+			&.pending {
+				top: 50%;
+				width: 2.5em;
+				height: 2.5em;
+				right: 0.5em;
+				position: absolute;
+				margin: -1.25em 0 0;
+				display: inline-block;
+				border: 2px solid $white;
+
+				-webkit-border-radius: 50%;
+				-moz-border-radius: 50%;
+				border-radius: 50%;
+
+				i {
+					top: 50%;
+					left: 50%;
+					width: 8px;
+					height: 8px;
+					position: absolute;
+					display: inline-block;
+					margin: -4px 0 0 -4px;
+					border: 2px solid $white;
+
+					-webkit-border-radius: 50%;
+					-moz-border-radius: 50%;
+					border-radius: 50%;
+				}
+				b.l,
+				b.b {
+					bottom: 50%;
+					left: 50%;
+					width: 2px;
+					height: 6px;
+					margin: 0 0 2px -1px;
+					position: absolute;
+					background: $white;
+					display: inline-block;
+					-webkit-border-radius: 50%;
+					-moz-border-radius: 50%;
+					border-radius: 50%;
+
+					-webkit-transform-origin: 50% 100%;
+					-moz-transform-origin: 50% 100%;
+					-ms-transform-origin: 50% 100%;
+					transform-origin: 50% 100%;
+				}
+				b.b {
+					height: 10px;
+					margin: 0 0 -2px 0;
+					@include rotate(135deg);
+				}
+			}
+		}
+
+		// D3 Tiny Progress
+		.d3-tiny-progress {
+			top: 50%;
+			right: 0.5em;
+			padding: 0;
+			width: 2.5em;
+			height: 2.5em;
+			background: none !important;
+			position: absolute;
+			margin: -1.25em 0 0;
+			display: inline-block;
+		}
+	}
+
+	// Price Compare
+	&.price-comp {
+		.border {
+			border: 2px solid transparent;
+		}
+		.circle {
+			top: -15px;
+			right: 0;
+			padding: 0;
+			z-index: 1;
+			width: 30px;
+			height: 30px;
+			position: absolute;
+			border: 2px solid $white;
+
+			-webkit-border-radius: 50%;
+			-moz-border-radius: 50%;
+			border-radius: 50%;
+		}
+	}
+	// Colors
+	.green {
+		.circle {
+			background: $green;
+		}
+		.border {
+			border-color: $green;
+		}
+		// &:hover{
+		// 	.border {
+		// 		border-color: $green;
+		// 	}
+		// }
+	}
+	.blue-dark {
+		.circle {
+			background: $blue-dark;
+		}
+		&:hover{
+			.border {
+				border-color: $blue-dark;
+			}
+		}
+	}
+	.red {
+		.circle {
+			background: $red;
+		}
+		&:hover{
+			.border {
+				border-color: $red;
+			}
+		}
+	}
+	.blue {
+		.circle {
+			background: $blue;
+		}
+		&:hover{
+			.border {
+				border-color: $blue;
+			}
+		}
+	}
+	.yellow {
+		.circle {
+			background: $yellow;
+		}
+		&:hover{
+			.border {
+				border-color: $yellow;
+			}
+		}
+	}
+	.blue-light {
+		.circle {
+			background: $blue-light;
+		}
+		&:hover{
+			.border {
+				border-color: $blue-light;
+			}
+		}
+	}
+	.black {
+		.circle {
+			background: $black;
+		}
+		&:hover{
+			.border {
+				border-color: $black;
+			}
+		}
+	}
+	
+	.map-yellow {
+		.circle {
+			background: $map-yellow;
+		}
+		&:hover{
+			.border {
+				border-color: $map-yellow;
+			}
+		}
+	}
+	.map-purple {
+		.circle {
+			background: $map-purple;
+		}
+		&:hover{
+			.border {
+				border-color: $map-purple;
+			}
+		}
+	}
+	.map-black {
+		.circle {
+			background: $map-black;
+		}
+		&:hover{
+			.border {
+				border-color: $map-black;
+			}
+		}
+	}
+	.map-light-blue {
+		.circle {
+			background: $map-light-blue;
+		}
+		&:hover{
+			.border {
+				border-color: $map-light-blue;
+			}
+		}
+	}
+	.silver {
+		.circle {
+			background: $silver;
+		}
+		&:hover{
+			.border {
+				border-color: $silver;
+			}
+		}
+	}
+	
+}
+
+.row.articles {
+	font-size: 0;
+}

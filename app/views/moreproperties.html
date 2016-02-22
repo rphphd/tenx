@@ -1,0 +1,30 @@
+<table class="moreProperties" ng-controller="MorepropertiesCtrl">
+<tr>
+	<td ng-show="count > 0">
+	  <left-arrow></left-arrow>
+	</td>
+	<td class="addTombstone text-center" ng-repeat="prop in properties">
+      <div style="z-index:5;position:absolute;" class="ribbon-overlay" >
+        <nir-ribbon></nir-ribbon>
+      </div>
+      <img ng-src="{{ properties[$index].parameters.thumbnailUrl }}" style="width:136px;height:90px;" />
+      <br/>REALestimate&trade;&nbsp;&nbsp;&nbsp;&nbsp;
+          {{ properties[$index].REALestimate[fc] | number : 2}}%
+      <p>
+        INVESTMENT<br/><span>{{ properties[$index].minInvestment[fc] | currency: '$' : 0}}</span>
+      </p>
+      <button type="button" id="a{{ properties[i].pid }}" class="pdAddProp button--xs button--green-border"
+        ng-click="addProperty(prop.pid)" style="font-size:14px;">
+        Add Property</button>
+      <div style="width:136px;" ng-show="$index>last">&nbsp;</div>
+	</td>
+	<td style="vertical-align:top;"><div style="width:136px;"><a href="#/receng" id="goSeeMoreProps">
+		<img src="images/370B4AFE73F516EA.jpg" style="width:136px;height:136px;" />
+		<a></div></td>
+	<td>
+		<right-arrow></right-arrow>
+	</td>
+	<td ng-hide="count > 0">No additional properties</td>
+</tr>
+</table>
+<!-- 136 x 90 -->

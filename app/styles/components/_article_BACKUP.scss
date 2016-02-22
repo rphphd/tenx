@@ -1,0 +1,367 @@
+.property-listing {
+	font-size: 0;
+
+	a.listing {
+		outline: 0;
+		float: none;
+		margin: 0 0 20px;
+		position: relative;
+		vertical-align: top;
+		display: inline-block;
+
+		@media(max-width:480px){
+			width: 100%;
+		}
+
+		&.standard:before {
+			top: 0;
+			left: 20px;
+			content: '';
+			width: 31px;
+			height: 32px;
+			position: absolute;
+			display: inline-block;
+			background: url(../images/article-clip--blue-lock.png) center top no-repeat;
+		}
+
+		b {
+			display: block;
+			padding: 0 0 3px;
+			color: $blue-dark;
+			font-size: $font-size-xs;
+		}
+
+		span {
+			color: $gray;
+			padding: 15px;
+			display: block;
+			overflow: hidden;
+			background: $gray-light;
+
+			&.image {
+				padding: 50% 0 0;
+				background-size: cover;
+				background-position: center center;
+			}
+		}
+
+		.border {
+			padding: 0;
+		}
+
+		// Status
+		.status {
+			color: $white;
+			line-height: 1em;
+			background: $blue;
+			padding: 1.5em 15px;
+			font-size: $font-size-xs;
+			text-transform: uppercase;
+		}
+		&.rejected {
+			.status {
+				background: $red;
+			}
+		}
+		&.countered {
+			.status {
+				background: $green;
+				padding: 1em 15px;
+			}
+		}
+
+		// Info Lists
+		ul {
+			margin: 0;
+			padding: 0;
+			display: block;
+			list-style: none;
+		}
+		li {
+			display: block;
+			padding: 3px 0;
+
+			&:after {
+				content: '';
+				clear: both;
+				display: table;
+			}
+
+			span {
+				padding: 0;
+				float: right;
+				display: inline-block;
+			}
+		}
+	}
+
+	// My Portfolio
+	&.my-portfolio {
+		a.listing {
+			span {
+				background: $white;
+			}
+		}
+		a.progress-close {
+			.status {
+				padding: 1em 15px;
+				background: $red;
+			}
+		}
+		a.progress-far,
+		a.pending {
+			.status {
+				padding: 1em 15px;
+				background: $blue;
+			}
+		}
+		a.rental {
+			.status {
+				background: $green;
+			}
+		}
+		a.vacant {
+			.status {
+				background: $gray;
+			}
+		}
+	}
+
+	// Price Compare
+	&.price-comp {
+		.border {
+			border: 2px solid transparent;
+		}
+		.circle {
+			top: -15px;
+			right: 0;
+			padding: 0;
+			width: 30px;
+			height: 30px;
+			position: absolute;
+			border: 2px solid $white;
+
+			-webkit-border-radius: 50%;
+			-moz-border-radius: 50%;
+			border-radius: 50%;
+		}
+	}
+	// Colors
+	.green {
+		.circle {
+			background: $green;
+		}
+		&:hover{
+			.border {
+				border-color: $green;
+			}
+		}
+	}
+	.blue-dark {
+		.circle {
+			background: $blue-dark;
+		}
+		&:hover{
+			.border {
+				border-color: $blue-dark;
+			}
+		}
+	}
+	.red {
+		.circle {
+			background: $red;
+		}
+		&:hover{
+			.border {
+				border-color: $red;
+			}
+		}
+	}
+	.blue {
+		.circle {
+			background: $blue;
+		}
+		&:hover{
+			.border {
+				border-color: $blue;
+			}
+		}
+	}
+	.yellow {
+		.circle {
+			background: $yellow;
+		}
+		&:hover{
+			.border {
+				border-color: $yellow;
+			}
+		}
+	}
+	.blue-light {
+		.circle {
+			background: $blue-light;
+		}
+		&:hover{
+			.border {
+				border-color: $blue-light;
+			}
+		}
+	}
+	.black {
+		.circle {
+			background: $black;
+		}
+		&:hover{
+			.border {
+				border-color: $black;
+			}
+		}
+	}
+}
+
+.row.articles {
+	font-size: 0;
+}
+
+// ul.article {
+// 	float: none;
+// 	min-width: 260px;
+// 	list-style: none;
+// 	vertical-align: top;
+// 	display: inline-block;
+// 	// @extend %reset-list;
+
+// 	li.article--header {
+// 		position: relative;
+
+// 		a.img {
+// 			display: block;
+// 			background-color: transparent;
+// 			background-repeat: no-repeat;
+// 			background-position: center center;
+// 			@include background-size(cover);
+// 			width: 100%;
+// 			height: 130px;
+// 		}
+		
+// 		select {
+// 			margin-bottom: 5px;
+// 		}
+		
+// 		img {
+// 			position: absolute;
+// 			top: 0px;
+// 			left: 10px;
+// 		}
+
+// 		i.img-circle {
+// 			border: $white 2px solid;
+// 			width: 30px;
+// 			height: 30px;
+// 			position: absolute;
+// 			top: -16px;
+// 			right: -16px;
+// 		}
+		
+// 		a.close-btn {
+// 			position: absolute;
+// 			top: 5px;
+// 			right: 5px;
+// 			color: $white;
+// 			background-color: rgba(0, 0, 0, 0.1);
+// 		}
+		
+// 		.header--overlay-text {
+// 			height: 100%;
+// 			width: 30%;
+// 			float: right;
+// 			padding-left: 9px;
+
+// 			ul {	
+// 				top: 50%;
+// 				position: relative;
+// 				@extend %reset-list;
+// 				@include transform-normal(translateY(-50%));
+
+// 				li:not(:last-child) {
+// 					margin-bottom: 8px;										
+// 				}
+// 			}
+// 		}
+// 	}
+
+// 	li.article--title, li.article--content, button {
+// 		padding-left: 22px;
+// 		padding-right: 22px;
+// 	}
+	
+// 	li.article--title {
+// 		padding-bottom: 8px;
+// 		padding-top: 12px;
+// 		text-transform: uppercase;
+// 	}
+	
+// 	li.article--content {
+// 		padding-top: 8px;
+// 		padding-bottom: 7px;
+
+// 		ul {
+// 			@extend %reset-list;
+// 			display: block;
+
+// 			li:not(:last-child) {
+// 				margin-bottom: 9px;
+// 			}
+// 		}
+// 	}
+	
+// 	li.article--footer {
+// 		padding-bottom: 0px;
+// 		padding-top: 8px;
+
+// 		button {
+// 			position: relative;
+
+// 			i.pull-right {
+// 				top: 50%;
+// 				right: 20px;
+// 				font-size: 45px;
+// 				position: absolute;
+
+// 				@include transform-normal(translateY(-50%));
+// 			}
+// 		}
+
+// 		.btns-couple {
+// 			display: block;			
+// 			width: 100%;
+// 			padding-bottom: 25px;
+
+// 			button {				
+// 				width: 50%;
+// 				padding-left: 0px;
+// 				padding-right: 0px;
+// 				margin: 0px;
+// 				border: none;
+// 				min-height: 38px;
+// 				display: inline-block;
+
+// 				&:first-child {
+// 					float: left;
+// 				}
+// 			}
+// 		}		 
+// 	}
+	
+// 	li.article--padding {
+// 		padding-left: 22px;
+// 		padding-right: 22px;
+// 	}
+
+// 	// Border
+// 	&--border {
+// 		border-width: 2px;
+// 		border-style: solid;
+// 	}
+
+// }

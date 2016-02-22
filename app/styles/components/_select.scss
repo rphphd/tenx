@@ -1,0 +1,51 @@
+.select {
+
+	font-weight: $regular;
+	font-size: $font-size-xs;				
+	@include font-proxima($bold);
+	color: $gray;
+	background-color: transparent;
+	@include border-radius(0px);		
+	border: 2px solid $gray;   
+	padding: 7px 10px;
+    padding-top: 9px;
+	display: inline-block;
+	min-width: 150px;
+	background: url(../images/select-arrow--gray.png) no-repeat 90% center;
+	appearance: none;
+	padding-right: 16%;
+	-moz-appearance: none;
+	-webkit-appearance: none;                    
+	text-indent: 0.01px;
+	text-overflow: "";
+	outline: 0;          
+	
+
+}
+
+.select--gray {
+	border: 2px solid $gray; 
+	background: url(../images/select-arrow--gray.png) no-repeat 90% center;
+	color: $gray;
+}
+.select--green {
+	border: 2px solid $green; 
+	background: url(../images/select-arrow--green.png) no-repeat 90% center;
+	color: $green;
+}
+
+.select--blue {
+	border: 2px solid $blue; 
+	background: url(../images/select-arrow--blue.png) no-repeat 90% center;
+	color: $blue;
+}
+
+.select--blue-dark {
+	border: 2px solid $blue-dark; 
+	background: url(../images/select-arrow--blue-dark.png) no-repeat 90% center;
+	color: $blue-dark;
+}
+
+.select--no-border {
+	border: none; 
+}

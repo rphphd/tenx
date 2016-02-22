@@ -1,0 +1,192 @@
+.text-input {
+	font-weight: $regular;
+	font-size: $font-size-xs;				
+	@include font-proxima($regular);
+	color: $gray;
+	background-color: transparent;
+	@include border-radius(0px);		
+	border: 2px solid $silver;   
+	padding: 7px 10px;
+    padding-top: 9px;
+	display: inline-block;
+	min-width: 150px;          
+	text-indent: 0.01px;
+	text-overflow: "";
+	appearance: none;
+	-moz-appearance: none;
+	-webkit-appearance: none;  
+	&::-webkit-input-placeholder {
+		@include font-proxima($regular, true);
+	}
+
+	&:-moz-placeholder { /* Firefox 18- */
+		@include font-proxima($regular, true);
+	}
+
+	&::-moz-placeholder {  /* Firefox 19+ */
+		@include font-proxima($regular, true);
+	}
+
+	&:-ms-input-placeholder {  
+		@include font-proxima($regular, true);
+	}
+}
+
+.search-input {
+	padding: 7px 10px;
+	border: 2px solid $silver;   
+	display: inline-block;
+	input {
+		color: $silver;
+		background-color: transparent;
+		display: inline-block;
+		min-width: 160px;
+		@include box-shadow(none);
+		appearance: none;
+		-moz-appearance: none;
+		-webkit-appearance: none; 
+		text-overflow: "";
+		border: none;
+		@include font-proxima($semi-bold);
+		font-size: $font-size-xxs;	
+		outline: 0; 
+		padding-left: 4px;
+		&:focus, &:active, &:hover {
+			@include box-shadow(none);
+			outline: 0; 
+		}
+		&::-webkit-input-placeholder {
+			color: $silver;
+			@include font-proxima($semi-bold);
+			font-size: $font-size-xxs;	
+		}
+
+		&:-moz-placeholder { /* Firefox 18- */
+			color: $silver;
+			@include font-proxima($semi-bold);
+			font-size: $font-size-xxs;	
+		}
+
+		&::-moz-placeholder {  /* Firefox 19+ */
+			color: $silver;
+			@include font-proxima($semi-bold);
+			font-size: $font-size-xxs;	
+		}
+
+		&:-ms-input-placeholder {  
+			color: $silver;
+			@include font-proxima($semi-bold);
+			font-size: $font-size-xxs;	
+		}
+	}
+
+	i {
+		font-size: 19px;
+		color: $silver;
+	}
+}
+
+.search-input--blue {
+	border: 2px solid $blue;   
+	input {
+		color: $blue;	
+		&::-webkit-input-placeholder {
+			color: $blue;
+		}
+
+		&:-moz-placeholder { /* Firefox 18- */
+			color: $blue;
+		}
+
+		&::-moz-placeholder {  /* Firefox 19+ */
+			color: $blue;
+		}
+
+		&:-ms-input-placeholder {  
+			color: $blue;
+		}
+	}
+
+	i {
+		font-size: 19px;
+		color: $blue;
+	}
+}
+
+
+.search-input--green {
+	border: 2px solid $green;   
+	input {
+		color: $blue;	
+		&::-webkit-input-placeholder {
+			color: $green;
+		}
+
+		&:-moz-placeholder { /* Firefox 18- */
+			color: $green;
+		}
+
+		&::-moz-placeholder {  /* Firefox 19+ */
+			color: $green;
+		}
+
+		&:-ms-input-placeholder {  
+			color: $green;
+		}
+	}
+
+	i {
+		font-size: 19px;
+		color: $green;
+	}
+}
+
+.huRadio,
+.huCheck {
+	span {
+		width: 12px;
+		height: 12px;
+		position: relative;
+		display: inline-block;
+		vertical-align: middle;
+		border: 1px solid $blue-dark;
+
+		&:after {
+			content: '';
+			top: 50%;
+			left: 50%;
+			width: 6px;
+			height: 6px;
+			display: none;
+			background: $blue;
+			position: absolute;
+
+			-webkit-transform: translateX(-50%) translateY(-50%);
+			-moz-transform: translateX(-50%) translateY(-50%);
+			transform: translateX(-50%) translateY(-50%);
+		}
+
+		&.checked {
+			&:after {
+				display: block;
+			}
+		}
+
+		input {
+			display: none;
+		}
+	}
+}
+.huRadio {
+	span {
+		-webkit-border-radius: 50%;
+		-moz-border-radius: 50%;
+		border-radius: 50%;
+
+		&:after {
+			-webkit-border-radius: 50%;
+			-moz-border-radius: 50%;
+			border-radius: 50%;
+		}
+	}
+}

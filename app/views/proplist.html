@@ -1,0 +1,64 @@
+<div ng-include="'views/plheader.html'" ></div>
+<div class="row propListing" ng-repeat="r in recommendations track by r.pid">
+  <div class="col-md-1" >
+    <div class="checkbox" ng-show="showCheckBox">
+      <label>
+        <input type="checkbox" id="sel_{{r.pid}}" ng-model="r.selected" ng-click="checkedSelected(r)">
+      </label>
+    </div>
+  </div>
+  <div class="col-md-11 " ng-class="{'property-item': inRe}" style="padding:20px 20px 0 20px;min-height:181px;margin-bottom:20px;border: 1px solid #ccc;{{propSelected(r.pid)}}">
+    <div class="showOnHover" ng-show="showPropListButtons" style="float:right;line-height:0.6;margin:-15px -15px 0 0;">
+      <a href="" class="deleteProperty" id="d{{r.pid}}" ng-click="deleteProperty(r.pid)">x</a></div>
+    <div class="row">
+      <div class="col-md-3">
+        <img ng-src="{{r.parameters.thumbnailUrl}}" width="160px;"/>
+      </div>
+      <div class="col-md-9">
+      <div class="col-md-4">
+        <span style="font-size:16px;line-height:1.5;font-weight:800;">{{ r.parameters.streetAddress }}</span><br/>
+				{{ r.parameters.cityState }}<br/>
+				{{ r.parameters.beds }} beds&nbsp;&nbsp;&nbsp;
+				{{ r.parameters.baths }} baths<br/>
+				{{ r.parameters.size.toLocaleString() }} sqft<br/>
+				Built: {{ r.parameters.built }}
+      </div>
+
+      <div class="col-md-8" style="font-size:12px;padding:0;">
+        <table style="width:95%;">
+          <tr><td>PRICE</td><td class="pull-right" style="margin-right:15px;">{{ r.price | currency: '$' : 0}}</td>
+              <td>APPRECIATION</td><td class="pull-right" >{{ r.ApprReturn[fc] | number : 2}}%</td></tr>
+          <tr><td>INVESTMENT</td><td class="pull-right" style="margin-right:15px;">{{ r.minInvestment[fc] | currency: '$' : 0}}</td>
+              <td>CASH ON CASH</td><td class="pull-right" >{{ r.cashOnCash | number : 2}}%</td></tr>
+          <tr><td>MARKET</td><td class="pull-right" style="margin-right:15px;">{{ r.parameters.HIL | cityStateToMarket }}</td>
+              <td>REALestimate&trade;</td><td class="pull-right color--blue-light font-weight--bold" >{{ r.REALestimate[fc] | number : 2}}%</td></tr>
+          <tr><td>NEIGHBORHOOD</td><td class="pull-right color--green-light font-weight--bold" style="margin-right:15px;">{{ r.nirclass | nirClassToMkt }}</td>
+              <td>TOTAL RETURN</td><td class="pull-right color--blue-light font-weight--bold">{{ r.TotalReturn[fc] | number : 2}}%</td>
+              </tr>
+        </table>
+    </div>
+      <div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="row showOnHover" ng-show="showPropListButtons">
+      <div class="col-md-4">
+        <button type="button" class="button--xs button--blue-clear
+						button--text-transform--none" style="margin-bottom:0;"><i class="fa fa-star-o fa--sm"></i>
+						 Watch List
+				</button>
+      </div>
+      <div class="col-md-4">
+        	<button type="button" id="r{{r.pid}}"
+        	    style="font-size:10px;text-transform:none;font-weight:800;"
+        	    ng-click="replaceProperty(r.pid)"
+        	    class="pdReplProp button--xs button--blue-border" style="margin-bottom:0;">Replace Property</button>
+      </div>
+      <div class="col-md-4">
+        <button type="button" id="ar{{r.pid}}" ar-portfolio-update
+          style="font-size:10px;text-transform:none;font-weight:800;"
+          ng-click="addToRemoveFromPortfolio(r.pid)"
+        	style="margin-bottom:0;"><i ng-class="plusMinusSymbol[r.pid]" ></i>&nbsp;{{addRemoveText[r.pid]}}</button>
+      </div>
+    </div>
+  </div>
+</div>

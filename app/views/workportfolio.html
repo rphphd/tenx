@@ -1,0 +1,33 @@
+<div id="workPortfolioPane" ng-controller="WorkportfolioCtrl"
+    class="floating-top-right-panel" wp-float ng-style="wpTop">
+  <div style="background-color: rgba(216,216,216,1);" class="text-center">
+    <!--img src="images/stubimages/workport.png" style="height:382px;width:325px;" /-->
+    <div style="min-height:100px;padding:30px 0;font-size:120%;{{hasPropertySelections}}">
+      <h1>{{portfolioName | invGoal }} Portfolio</h1>
+      <p ng-show="showProperties()">{{totalReturn | number : 2 }}%<br/>
+      Total Return</p>
+      <table style="width:80%;margin: 0 auto;">
+        <tr ng-show="numberOfProperties>0"><td class="text-left">APPRECIATION</td>
+          <td class="text-right">{{ appreciation | number : 2 }}%</td></tr>
+        <tr ng-show="numberOfProperties>0"><td class="text-left">REAlestimate&trade;</td>
+          <td class="text-right">{{ realEstimate | number : 2 }}%</td></tr>
+        <tr ng-show="numberOfProperties>0"><td class="text-left">TOTAL RETURN</td>
+          <td class="text-right">{{ totalReturn | number : 2 }}%</td></tr>
+        <tr ng-show="numberOfProperties>0"><td class="text-left">TOTAL INVESTMENT</td>
+          <td class="text-right">{{ investment | currency : '$' : 0 }}</td></tr>
+        <tr ng-show="numberOfProperties>0"><td class="text-left">PORTFOLIO VALUE</td>
+          <td class="text-right">{{ portfolioValue | currency : '$' : 0  }}</td></tr>
+        <tr><td class="text-left"># PROPERTIES</td>
+          <td class="text-right">{{numberOfProperties}}</td></tr>
+      </table>
+    </div>
+
+  </div>
+  <div class="text-center" style="width:100%;background-color:#fff;
+      margin-bottom:0;padding:10px 0;height:60px;">
+    <button type="button" class="button--sm button--blue" ng-click="addToPortfolio()";>
+      {{addViewButtonText}}
+    </button>
+  </div>
+</div>
+

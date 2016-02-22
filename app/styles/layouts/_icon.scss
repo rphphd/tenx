@@ -1,0 +1,147 @@
+.support{
+  width: 16px;
+  height: 13px;
+  display: block;
+  background: {
+    image: url('../../assets/images/support-white.png');
+    position: top center;
+    repeat: no-repeat;
+  }
+}
+.contact{
+  width: 16px;
+  height: 13px;
+  display: block;
+  background: {
+    image: url('../../assets/images/contact-us-white.png');
+    position: top center;
+    repeat: no-repeat;
+  }
+}
+
+
+
+.social-connect{
+    .social{
+      @include size(26px);
+      display:inline-block;
+      background: url('../../assets/images/social.png') no-repeat;
+          &.twitter{
+            background-position: 0% 0%;
+            &:hover{
+              background-position: 0% -28px;
+            }
+          }
+          &.facebook{
+            background-position: -23px 0%;
+            &:hover{
+              background-position: -23px -28px;;
+
+            }
+          }
+    }
+}
+
+.ic {
+  height: 72px;
+  margin: 0 auto;
+  width: 68px;
+  background: url('../../assets/images/ic-icon.png') no-repeat;
+  &.ic-smart {
+    background-position: -2px -66px;
+  }
+  &.ic-wealth {
+    background-position: -2px -3px;
+  }
+  &.ic-easy {
+    background-position: -2px -139px;
+  }
+}
+//icons
+.grey-icon{
+  height: 20px;
+  margin: 0 auto;
+  width: 20px;
+  display: inline-block;
+  background: url('../../assets/images/grey-icons-sprite.png') no-repeat;
+  &.cross{
+    background-position: 0px 3px;
+  }
+  &.closemodal{
+    background-position: 0px 3px;
+    position: absolute;
+    right: 11px;
+    top: 13px;
+    z-index: 6000;
+  }
+  &.equal{
+    background-position: 0px -17px;
+  }
+  &.right-angle{
+    background-position: 0px -38px;
+  }
+  &.left-angle{
+    background-position: 0px -81px;
+  }
+  &.question{
+    background-position: 0px -65px;
+    vertical-align: -2px;
+    margin-left: -1px;
+    height: 14px;
+  }
+  &.question-grey{
+    background-position: 0px -109px;
+    vertical-align: -3px;
+    margin-left: -1px;
+    height: 16px;
+  }
+  &.question-white{
+    background-position: 0px -133px;
+    vertical-align: -3px;
+    margin-left: -1px;
+    height: 16px;
+  }
+}
+
+//big icons
+.big-icons{
+  background: url('../../assets/images/sprite-images.png') no-repeat;
+  height: 54px;
+  width:55px;
+  display: inline-block;
+
+  &.sol-mnger{
+    background-position: 0px 3px;
+  }
+
+  &.hu-social{
+    background-position: 0px -55px;
+  }
+  &.hu-property-rent{
+    background-position: 0px -118px;
+  }
+  &.hu-acq-property{
+    background-position: 0px -180px;
+  }
+  &.adjust-risk{
+    background-position:-51px 0px;
+  }
+  &.investment-amt{
+    background-position:-51px -58px;
+  }
+
+  &.upload-file{
+    background-position: 0px -235px;
+    height: 25px;
+    vertical-align: -7px;
+    width: 43px;
+  }
+  &.new-folder{
+    background-position: 0px -235px;
+    height: 25px;
+    vertical-align: -7px;
+    width: 43px;
+
+  }
+
+}

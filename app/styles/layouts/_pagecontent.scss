@@ -1,0 +1,14 @@
+#content-wrap{
+  padding-bottom: 378px;
+}
+#main-wrap{
+  min-height: 100%;
+}
+.page-content{
+  @media screen and (max-width:$break-large) {
+    margin-top:55px;
+  }
+  @media screen and (min-width:$break-large){
+      margin-top: 110px;
+  }
+}

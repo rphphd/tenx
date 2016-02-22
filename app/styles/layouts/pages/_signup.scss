@@ -1,0 +1,55 @@
+/*registration*/
+.signup-con {
+  @extend .login-con;
+  margin-top: 0px;
+  width: 100%;
+  .signup-heading{
+    @extend .login-heading;
+    text-align: left;
+    border-bottom: 1px solid $gray-cool;
+  }
+  form{
+    .sec{
+      margin-right: 27px;
+      @media screen and (max-width: $break-large) {
+        margin-right: 0px;
+      }
+    }
+  }
+  .remember-me{
+    div:first-child{
+      @media screen and (max-width: $break-large) {
+        float: none !important;
+        margin-top: 10px;
+        text-align: left;
+      }
+    }
+  }
+  @media screen and (max-width: $break-large) {
+    margin-top: 40px;
+  }
+}
+.summary-signup{
+
+  .signup-summ{
+    @include padding(23px 15px);
+    @media screen and (max-width: $break-large){
+      text-align: center;
+    }
+  }
+  @media screen and (max-width: $break-large) {
+    border-top: 1px solid $gray-cool;
+    margin-top: 30px;
+  }
+}
+.huCheck{
+  &.checked{
+    span{
+      &::after{
+        display: block;
+      }
+    }
+  }
+}
+
+

@@ -1,0 +1,33 @@
+.pagination {
+	&>.disabled>span,
+	&>.disabled>span:hover,
+	&>.disabled>span:focus,
+	&>.disabled>a,
+	&>.disabled>a:hover,
+	&>.disabled>a:focus {
+		color: $gray-cool;
+	}
+
+	li {
+		a, span {
+			border: none;
+			font-size: $font-size-xxs;
+			font-weight: $bold;
+			background-color: transparent;
+			color: $gray-cool;				
+			&:active, &:focus, &:visited, &:hover {
+				background-color: transparent;
+			}
+		}		
+	}
+	li.active, li.navi {
+		a, span {
+			color: $blue-dark;	
+			background-color: transparent;
+			&:active, &:focus, &:visited, &:hover {
+				background-color: transparent;
+				color: $blue-dark;	
+			}
+		}
+	}	
+}

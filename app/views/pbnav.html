@@ -1,0 +1,8 @@
+<div ng-controller="PbnavCtrl" id="page-top" class="collapse navbar-collapse">
+  <!--p ng-bind="txt"></p-->
+  <ul class="list-inline nav navbar-nav">
+    <li ng-repeat="menu in menuItems">
+      <a ng-click="chgSelected(menu)" href="#{{ menu.route }}"><h6 style="color: {{selectedMenu.route == menu.route ? 'rgba(71,164,238,1)' : '#000' }}">{{ menu.name }}</h6></a>
+    </li>
+  </ul>
+</div>
