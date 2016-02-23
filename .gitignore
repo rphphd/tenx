@@ -1,6 +1,7 @@
 .*
 .tmp/*
 .tmp/styles/*
+*.zip
 HUcities.*
 uscitieslatlong.txt
 

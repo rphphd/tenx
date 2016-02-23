@@ -36,7 +36,8 @@
 
         <div ng-show="isSelected(1)" style="min-height:600px;">
           <div ng-show="recommendations.length>0" ng-include="'views/proplist.html'" ></div>
-          <div ng-hide="recommendations.length>0"  ><p>You have no properties in your portfolio.</p></div>
+          <div ng-hide="recommendations.length>0"  >
+            <p class="text-center color--red" style="font-size:22px;">You have no properties in your portfolio.</p></div>
         </div>
         <div ng-show="isSelected(2)" style="min-height:600px;">
           <p>Financial Details Tab</p>

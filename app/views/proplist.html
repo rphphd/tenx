@@ -1,13 +1,13 @@
 <div ng-include="'views/plheader.html'" ></div>
 <div class="row propListing" ng-repeat="r in recommendations track by r.pid">
-  <div class="col-md-1" >
-    <div class="checkbox" ng-show="showCheckBox">
+  <div class="{{ showCheckBox ? 'col-md-1' : ''}}" >
+    <div class="checkbox" ng-show="showCheckBox"  >
       <label>
         <input type="checkbox" id="sel_{{r.pid}}" ng-model="r.selected" ng-click="checkedSelected(r)">
       </label>
     </div>
   </div>
-  <div class="col-md-11 " ng-class="{'property-item': inRe}" style="padding:20px 20px 0 20px;min-height:181px;margin-bottom:20px;border: 1px solid #ccc;{{propSelected(r.pid)}}">
+  <div class="{{ showCheckBox ? 'col-md-11' : 'col-md-12' }}" ng-class="{'property-item': showCheckBox}" style="{{ showCheckBox ? '': 'margin-left:15px;' }} padding:20px 20px 0 20px;min-height:181px;margin-bottom:20px;border: 1px solid #ccc;{{propSelected(r.pid)}}">
     <div class="showOnHover" ng-show="showPropListButtons" style="float:right;line-height:0.6;margin:-15px -15px 0 0;">
       <a href="" class="deleteProperty" id="d{{r.pid}}" ng-click="deleteProperty(r.pid)">x</a></div>
     <div class="row">

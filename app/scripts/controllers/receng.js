@@ -45,6 +45,7 @@ angular.module('re2App')
       _.forEach($rootScope.recommendations, function(r) {
         if (portPropsPids.indexOf(r.pid)<0) { r.selected = true; }
       });
+      $rootScope.invMixChg = true;
       console.log('in haveRecommendations, recommendatons',_.pluck($rootScope.recommendations,'pid').sort());
     });
 

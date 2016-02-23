@@ -1,5 +1,8 @@
 <!--img src="images/stubimages/30projgrowth.png" style="height:300px;" /-->
 <div ng-controller="ProjgrowthCtrl" >
-<h4 style="background-color: rgb(216,216,216); margin-bottom: 0;">30 Year Projected Growth</h4>
-<div google-chart chart="chartObject" ng-style="cssStyle" on-ready="chartReady()"></div>
+<h4 ng-show="showChart" style="background-color: rgb(216,216,216); margin-bottom: 0;">30 Year Projected Growth</h4>
+<div ng-show="showChart" google-chart chart="chartObject" ng-style="cssStyle" on-ready="chartReady()"></div>
+<div ng-hide="showChart" style="min-height:300px;min-width:383px;">
+  <p style="padding-top:150px;">Create a portfolio to show 30 year growth data</p>
+</div>
 </div>

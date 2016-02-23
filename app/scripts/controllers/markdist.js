@@ -8,31 +8,44 @@
  * Controller of the re2App
  */
 angular.module('re2App')
-  .controller('MarkdistCtrl', function ($rootScope,$scope,_) {
+  .controller('MarkdistCtrl', function ($rootScope,$scope,_,investmentService) {
 
-     var updateMkts = function(recommendations) {
+    $scope.countLine = '';
 
-        $scope.propCounts = recommendations.length;
+    var getTheProperties = function () {
+      var theProperties = investmentService.getPortfolio();
+      if (typeof $rootScope.recommendations !== 'undefined' &&
+          $rootScope.recommendations.length>0
+      ) {
+        theProperties = $rootScope.recommendations;
+      }
+      console.log('getTheProperties',theProperties);
+      return theProperties;
+    };
+
+    var updateMkts = function() {
+        var recommendations = getTheProperties();
+        var propCounts = recommendations.length;
         $scope.theMarkets = _.groupBy(recommendations,function(p){
           var theHIL = p.parameters.HIL.split(',');
           return theHIL[0].replace(/ /g,'');
         });
         $scope.theCities = _.keys($scope.theMarkets);
-        $scope.marketCount = $scope.theCities.length;
+        var marketCount = $scope.theCities.length;
+        $scope.countLine = propCounts > 0 ?
+          propCounts + ' Properties in ' + marketCount + ' Markets' :
+          'No properties selected';
+        console.log('mkt dist updateMkts',propCounts,marketCount,$scope.countLine);
+    };
 
-     };
-
-
-     $rootScope.haveRecommendations.then(function(results){
-      var recProps = results;
-      updateMkts(recProps);
-    });
+    updateMkts();
 
     $rootScope.$watch('mktDistChg',function(newValue,oldValue) {
       if (newValue && !oldValue) {
         console.log('mktDistChg watch', newValue, oldValue);
+        updateMkts();
         $rootScope.mktDistChg = false;
-        updateMkts($rootScope.recommendations);
+        $rootScope.growthDataChg = true;
       }
     });
 

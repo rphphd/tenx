@@ -37,14 +37,40 @@ angular.module('re2App')
         }
       };
 
-      $rootScope.haveRecommendations.then(function(recommendations){
+      var getTheProperties = function () {
+        var theProperties = investmentService.getPortfolio();
+        if (typeof $rootScope.recommendations !== 'undefined' &&
+            $rootScope.recommendations.length>0
+        ) {
+          theProperties = $rootScope.recommendations;
+        }
+        console.log('getTheProperties',theProperties);
+        return theProperties;
+      };
 
+      var updateGrowthChart = function () {
+        var recommendations = getTheProperties();
+        if (recommendations.length>0) {
+          $scope.showChart = true;
           var projectedGrowthData = propertyService.get30yrGrowthData(
-              recommendations, investmentService.getFinancing());
+                recommendations, investmentService.getFinancing());
 
           $scope.chartObject.data = projectedGrowthData;
+        } else {
+          $scope.showChart = false;
+        }
 
-          console.log('started ProjgrowthCtrl',$rootScope,$scope);
+        console.log('started ProjgrowthCtrl',$rootScope,$scope);
+      };
+
+      updateGrowthChart();
+
+      $rootScope.$watch('growthDataChg',function(newValue,oldValue) {
+        if (newValue && !oldValue) {
+          console.log('growthDataChg watch', newValue, oldValue);
+          $rootScope.growthDataChg = false;
+          updateGrowthChart();
+        }
       });
 
   });

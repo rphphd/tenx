@@ -1,6 +1,6 @@
 <div id="workPortfolioPane" ng-controller="WorkportfolioCtrl"
     class="floating-top-right-panel" wp-float ng-style="wpTop">
-  <div style="background-color: rgba(216,216,216,1);" class="text-center">
+  <div style="background-color: rgba(216 ,216,216,1);border:solid 1px #999;" class="text-center">
     <!--img src="images/stubimages/workport.png" style="height:382px;width:325px;" /-->
     <div style="min-height:100px;padding:30px 0;font-size:120%;{{hasPropertySelections}}">
       <h1>{{portfolioName | invGoal }} Portfolio</h1>
@@ -23,11 +23,14 @@
     </div>
 
   </div>
-  <div class="text-center" style="width:100%;background-color:#fff;
+  <div class="text-center" style="width:100%;background-color:#fff;border : solid 1px #999;border-top:none;
       margin-bottom:0;padding:10px 0;height:60px;">
     <button type="button" class="button--sm button--blue" ng-click="addToPortfolio()";>
       {{addViewButtonText}}
     </button>
   </div>
+  <div ng-show="showHelp" style="margin: 20px 0 0 0;border : solid 1px #999;width:323px;text-align:center;"
+    ng-include="'views/needhelp.html'" ></div>
+  <div ng-show="showHelp" style="margin: 20px 0 0 0;border : solid 1px #999;width:323px;text-align:center;"
+    ng-include="'views/nextsteps.html'" ></div>
 </div>
-

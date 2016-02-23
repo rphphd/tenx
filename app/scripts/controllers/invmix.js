@@ -8,7 +8,8 @@
  * Controller of the re2App
  */
 angular.module('re2App')
-  .controller('InvmixCtrl', function ($rootScope, $scope, _, riskGroupService) {
+  .controller('InvmixCtrl', function (
+                  $rootScope, $scope, _, riskGroupService, investmentService) {
 
     var recProps = [];
     var nhCounts;
@@ -19,7 +20,19 @@ angular.module('re2App')
       $scope.nhColors[nhc] = riskGroupService.getNirColor(nhc);
     });
 
-    var updateMix = function (recommendations) {
+    var getTheProperties = function () {
+      var theProperties = investmentService.getPortfolio();
+      if (typeof $rootScope.recommendations !== 'undefined' &&
+          $rootScope.recommendations.length>0
+      ) {
+        theProperties = $rootScope.recommendations;
+      }
+      console.log('getTheProperties',theProperties);
+      return theProperties;
+    };
+
+    var updateMix = function () {
+      var recommendations = getTheProperties();
       nhCounts = { 'LUXURY' : 0, 'A' : 0, 'B' : 0, 'C' : 0 };
       _.forEach(recommendations,function(p){
         var nh = p.nirclass.substr(0,1).toUpperCase().replace('L','Luxury');
@@ -29,23 +42,18 @@ angular.module('re2App')
           nhCounts[nh] = 1;
         }
       });
-      console.log('nhCounts',nhCounts);
+      console.log('nhCounts',nhCounts, 'recommendations', recommendations);
       $scope.nhClasses = nhClasses;
       $scope.nhCounts = nhCounts;
     };
 
-    console.log('$scope.nhColors',$scope.nhColors);
-    $rootScope.haveRecommendations.then(function(results){
-      recProps = results;
-      console.log('inv mix rec Props',recProps);
-      updateMix(results);
-    });
+    updateMix();
 
     $rootScope.$watch('invMixChg',function(newValue,oldValue) {
-      if (newValue !== oldValue) {
+      if (newValue) {
         console.log('invMixChg watch', newValue, oldValue);
+        updateMix();
         $rootScope.invMixChg = false;
-        updateMix($rootScope.recommendations);
         $rootScope.mktDistChg = true;
       }
     });

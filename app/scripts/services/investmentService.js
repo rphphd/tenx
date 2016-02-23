@@ -216,9 +216,7 @@
 
   this.resetRecommendations = function () {
       console.log('resetRecommendations', theProperties.length, theProperties);
-      _.forEach(theProperties,function(r){
-        r.recommended = false;
-      });
+      this.clearRecommendations();
       searchProperties();
       var portfolioPids = _.pluck(portfolio,'pid');
       var newRecommendations = _.reject(
@@ -232,6 +230,13 @@
       $rootScope.addedRecommendations = true;
       $rootScope.portfolioChange = true;
       $rootScope.invMixChg = true;
+  };
+
+  this.clearRecommendations = function () {
+    _.forEach(theProperties,function(r){
+        r.recommended = false;
+    });
+    $rootScope.recommendations = [];
   };
 
 });
