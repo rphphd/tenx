@@ -1,6 +1,7 @@
 <div id="workPortfolioPane" ng-controller="WorkportfolioCtrl"
     class="floating-top-right-panel" wp-float ng-style="wpTop">
-  <div style="background-color: rgba(216 ,216,216,1);border:solid 1px #999;" class="text-center">
+  <div style="border:solid 1px #999;"
+    class="text-center" ng-class="numberToAdd <= 0 ? 'bg--gray-cool' : numberOfProperties>0 ? 'bg-green-light' : 'bg--yellow'">
     <!--img src="images/stubimages/workport.png" style="height:382px;width:325px;" /-->
     <div style="min-height:100px;padding:30px 0;font-size:120%;{{hasPropertySelections}}">
       <h1>{{portfolioName | invGoal }} Portfolio</h1>
@@ -31,6 +32,6 @@
   </div>
   <div ng-show="showHelp" style="margin: 20px 0 0 0;border : solid 1px #999;width:323px;text-align:center;"
     ng-include="'views/needhelp.html'" ></div>
-  <div ng-show="showHelp" style="margin: 20px 0 0 0;border : solid 1px #999;width:323px;text-align:center;"
-    ng-include="'views/nextsteps.html'" ></div>
+  <!--div ng-show="showHelp" style="margin: 20px 0 0 0;border : solid 1px #999;width:323px;text-align:center;"
+    ng-include="'views/nextsteps.html'" ></div-->
 </div>

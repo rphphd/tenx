@@ -11,7 +11,6 @@ angular.module('re2App')
   .controller('InvmixCtrl', function (
                   $rootScope, $scope, _, riskGroupService, investmentService) {
 
-    var recProps = [];
     var nhCounts;
     var nhClasses = ['LUXURY','A','B','C'];
     $scope.nhColors= [];
@@ -27,7 +26,7 @@ angular.module('re2App')
       ) {
         theProperties = $rootScope.recommendations;
       }
-      console.log('getTheProperties',theProperties);
+      //console.log('getTheProperties',theProperties);
       return theProperties;
     };
 
@@ -42,16 +41,16 @@ angular.module('re2App')
           nhCounts[nh] = 1;
         }
       });
-      console.log('nhCounts',nhCounts, 'recommendations', recommendations);
+      //console.log('nhCounts',nhCounts, 'recommendations', recommendations);
       $scope.nhClasses = nhClasses;
       $scope.nhCounts = nhCounts;
     };
 
     updateMix();
 
-    $rootScope.$watch('invMixChg',function(newValue,oldValue) {
+    $rootScope.$watch('invMixChg',function(newValue) {
       if (newValue) {
-        console.log('invMixChg watch', newValue, oldValue);
+        //console.log('invMixChg watch', newValue, oldValue);
         updateMix();
         $rootScope.invMixChg = false;
         $rootScope.mktDistChg = true;

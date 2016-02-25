@@ -23,6 +23,7 @@ angular.module('re2App')
     $scope.showPropListButtons = false;
     $rootScope.showPropsBadge = true;
     investmentService.clearRecommendations();
+    $scope.headerView = 'views/plheader.html';
 
     $scope.nSteps = [
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In erat mauris, faucibus quis pharetra sit amet, pretium ac libero.',
@@ -33,10 +34,10 @@ angular.module('re2App')
     ];
 
     var portfolio = investmentService.getPortfolio();
-    console.log('portfolio',portfolio);
+    //console.log('portfolio',portfolio);
 
     $scope.recommendations = portfolio;
-    console.log('in portfolio controller', $scope.recommendations);
+    //console.log('in portfolio controller', $scope.recommendations);
 
     if (portfolio.length>0) { $scope.addViewButtonText = 'Confirm Portfolio'; }
     else { $scope.addViewButtonText = 'Create Portfolio'; }

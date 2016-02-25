@@ -19,7 +19,7 @@ angular.module('re2App')
       ) {
         theProperties = $rootScope.recommendations;
       }
-      console.log('getTheProperties',theProperties);
+      //console.log('getTheProperties',theProperties);
       return theProperties;
     };
 
@@ -35,14 +35,14 @@ angular.module('re2App')
         $scope.countLine = propCounts > 0 ?
           propCounts + ' Properties in ' + marketCount + ' Markets' :
           'No properties selected';
-        console.log('mkt dist updateMkts',propCounts,marketCount,$scope.countLine);
+        //console.log('mkt dist updateMkts',propCounts,marketCount,$scope.countLine);
     };
 
     updateMkts();
 
     $rootScope.$watch('mktDistChg',function(newValue,oldValue) {
       if (newValue && !oldValue) {
-        console.log('mktDistChg watch', newValue, oldValue);
+        //console.log('mktDistChg watch', newValue, oldValue);
         updateMkts();
         $rootScope.mktDistChg = false;
         $rootScope.growthDataChg = true;

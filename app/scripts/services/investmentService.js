@@ -54,7 +54,7 @@
     var qualProps = _.reject(theProperties, function(p){
       return typeof p[ig] === 'undefined';
     });
-    console.log('qual properties');
+    //console.log('qual properties');
     qualProps = _.filter(qualProps,function(q){
       var res = false;
       var thisNh = q.nirclass.substr(0,1).toUpperCase();
@@ -72,6 +72,31 @@
       }
     }
     //console.log('qual properties',fc, ig, _.filter(qualProps,{recommended:true}));
+  };
+
+  this.searchInventory = function () {
+    var fc = investorSearchParameters.financing;
+    var results = propertyService.theInventory.then(function(props){
+      var portfolioInvestment = 0;
+      portfolioInvestment = _.reduce(portfolio, function(portfolioInvestment, p) {
+        //console.log('p',p);
+        return portfolioInvestment + p.minInvestment[fc];
+      },portfolioInvestment);
+      var remainingInvestment = investorSearchParameters.investmentAmount - portfolioInvestment;
+      //console.log('searchInventory',portfolio,portfolioInvestment,remainingInvestment);
+      var qualProps = _.filter(props,function(q){
+        var res = false;
+        var thisNh = q.nirclass.substr(0,1).toUpperCase();
+        if (thisNh === 'L') {thisNh = 'Lux';}
+        if ( _.find(neighborhoods,{name : thisNh}).selected) { res = true; }
+        if (q.minInvestment[fc]>remainingInvestment) { res = false; }
+        return res;
+      });
+      return qualProps;
+    });
+
+    //console.log('searchInventory',JSON.stringify(results));
+    return results;
   };
 
 	this.getInvPlan = function () {
@@ -195,9 +220,9 @@
   };
 
   this.addPropertyToRecommended = function(pid) {
-    console.log('addPropertyToRecommended pid',pid);
+    //console.log('addPropertyToRecommended pid',pid);
     propertyService.theInventory.then(function(results){
-      console.log('addPropertyToRecommended results',results.length,_.find(results,{pid : pid}));
+      //console.log('addPropertyToRecommended results',results.length,_.find(results,{pid : pid}));
       theProperties.push(
         propertyService.addNewProperty( _.find(results,{pid : pid}) )
       );
@@ -210,7 +235,7 @@
     var updatedRecommendation = _.filter(theProperties, function (r) {
       return r.recommended;
     });
-    console.log('updatedRecommendation',updatedRecommendation);
+    //console.log('updatedRecommendation',updatedRecommendation);
     return updatedRecommendation;
   };
 

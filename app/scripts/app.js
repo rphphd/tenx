@@ -72,7 +72,7 @@ re2App.run(['$document', '$rootScope', function ($document, $rootScope) {
     var ubiOn =  false;
 
     $rootScope.sortFields = ['PRICE','INVESTMENT','MARKET','NEIGHBORHOOD',
-          'APPRECIATION','CASH ON CASH','YIELD','REALestimate\u2122',
+          'APPRECIATION','CASH ON CASH','REALestimate\u2122',
           'TOTAL RETURN'];
 
     var getClosestID = function (target) {

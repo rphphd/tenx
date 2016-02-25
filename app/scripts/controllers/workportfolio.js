@@ -10,7 +10,7 @@
 angular.module('re2App')
   .controller('WorkportfolioCtrl', function (_,$rootScope,$scope,$location,investmentService) {
 
-    console.log('WorkportfolioCtrl rootScope',$rootScope);
+    //console.log('WorkportfolioCtrl rootScope',$rootScope);
 
     var fc = investmentService.getFinancing();
 
@@ -56,7 +56,7 @@ angular.module('re2App')
 
       }
 
-      if ($rootScope.numProps>0 && $location.path()=== '/receng' ) {
+      if ($rootScope.numProps>0 && $location.path() !== '/portfolio' ) {
         var portfolioPids = _.pluck(portfolio,'pid');
         var selectedProps = _.reject(
           _.filter(investmentService.getRecommendationUpdate(),{selected : true}),
@@ -107,8 +107,20 @@ angular.module('re2App')
           } else { $scope.addViewButtonText = 'No Properties to Add'; }
           break;
         case '/portfolio' :
-
           break;
+        case '/propsearch' :
+          console.log($scope.recommendations,$rootScope.recommendations);
+          var theSelected = _.filter($scope.recommendations, { selected: true});
+          var numSelected = typeof theSelected === 'undefined' ? 0 : theSelected.length;
+          $scope.numberToAdd = numSelected;
+          console.log( theSelected, numSelected);
+          if (numSelected <= 0) {
+            $scope.addViewButtonText = 'Select Properties for Portfolio';
+          } else {
+            $scope.addViewButtonText = 'Add to my Portfolio (' + numSelected + ')';
+          }
+          console.log('workportfolio propsearch scope',$scope,$rootScope);
+
       }
     };
 
@@ -123,17 +135,19 @@ angular.module('re2App')
           $location.path('/portfolio'); break;
         case 'Add ':
           $scope.hasPropertySelections = '';
-          $rootScope.haveRecommendations.then(function(results){
-            var selectedOnes = _.filter(results,{selected : true});
-            _.forEach(selectedOnes,function(r){
-              investmentService.addToPortfolio(r);
-              r.selected = false;
-            });
-            $scope.numberToAdd = 0;
-            $scope.hasPropertySelections = 'font-weight:normal;';
-            $rootScope.portfolioChange = true;
-            $rootScope.propertyListingChange = true;
+          console.log('add To Portfolio button pushed',$rootScope.recommendations);
+          var selectedOnes = _.filter($rootScope.recommendations,{selected : true});
+          _.forEach(selectedOnes,function(r){
+            investmentService.addToPortfolio(r);
+            r.selected = false;
           });
+          console.log('selected properties',selectedOnes,$scope.numberToAdd);
+          $scope.numberToAdd = 0;
+          setUpButton();
+          console.log('selected properties',selectedOnes,$scope.numberToAdd,$scope.addViewButtonText);
+          $scope.hasPropertySelections = 'font-weight:normal;';
+          $rootScope.portfolioChange = true;
+          $rootScope.propertyListingChange = true;
           break;
         case 'Conf': break;
         case 'Crea':
@@ -142,6 +156,7 @@ angular.module('re2App')
     };
 
     $scope.showProperties = function () {
+      console.log('showProperties',$rootScope.numProps,$scope.numberOfProperties);
       return ($rootScope.numProps>0 && $scope.numberOfProperties>0) ? true : false;
     };
 
@@ -149,22 +164,19 @@ angular.module('re2App')
       if (newValue!==oldValue) {
         console.log('workportfolio portfolio numProps watch called',newValue,oldValue);
         $scope = setVariables($scope);
-        setUpButton();
         console.log('end of numProps watch',$scope, $scope.$id,$rootScope);
         $rootScope.propertyListingChange = true;
         setUpButton();
       }
     });
 
-    $scope.$watch(function() { return $rootScope.portfolioChange; },
-              function(newValue,oldValue){
-      if (newValue && !oldValue) {
-        $rootScope.portfolioChange=false;
-        console.log('workportfolio portfolioChange watch called',newValue,oldValue);
+    $scope.$watch('$parent.$parent.numSelected',function(newValue,oldValue){
+      if (newValue!==oldValue) {
+
+        $rootScope.numProps = $rootScope.recommendations.length;
+        console.log('got to portfolioChange',$rootScope.numProps,$rootScope.recommendations);
         $scope = setVariables($scope);
         setUpButton();
-        console.log('end of portfolioChange watch',$scope, $scope.$id,$rootScope);
-        $rootScope.propertyListingChange = true;
       }
     });
 

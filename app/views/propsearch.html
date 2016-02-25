@@ -1,3 +1,23 @@
 <div ng-include="'views/pbnav.html'" ></div>
 <div ng-include="'views/pbprog.html'" ></div>
-<p>This is the propsearch view.</p>
+<div ng-controller="PropsearchCtrl" >
+  <hr id="topForWorkingPortfolio" style="margin:10px 0;"></hr>
+  <div ng-include="'views/workportfolio.html'" ></div>
+  <div class="row">
+    <div class="col-md-9">
+      <h1>Property Search</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div style="width:68%;padding-left:15px;">
+    <div ng-include="'views/modcriteria.html'" ></div>
+    </div>
+  </div>
+  <div class="col-md-9" ng-show="totalItems>0">
+      <div ng-include="'views/psheader.html'"></div>
+  </div>
+  <div class="col-md-8">
+      <div ng-include="'views/proplist.html'" ></div>
+  </div>
+  <hu-pagination></hu-pagination>
+</div>

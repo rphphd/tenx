@@ -12,7 +12,7 @@ angular.module('re2App')
         restrict: 'A',
         link: function(scope, element, attrs) {
           scope.$watch(attrs.ngHide, function() {
-              console.log('showNavBar link watch',scope, attrs.ngHide, element, scope[attrs.ngHide] );
+              //console.log('showNavBar link watch',scope, attrs.ngHide, element, scope[attrs.ngHide] );
               $compile(element.contents())(scope);
           });
         }

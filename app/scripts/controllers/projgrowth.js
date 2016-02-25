@@ -44,7 +44,7 @@ angular.module('re2App')
         ) {
           theProperties = $rootScope.recommendations;
         }
-        console.log('getTheProperties',theProperties);
+        //console.log('getTheProperties',theProperties);
         return theProperties;
       };
 
@@ -60,14 +60,14 @@ angular.module('re2App')
           $scope.showChart = false;
         }
 
-        console.log('started ProjgrowthCtrl',$rootScope,$scope);
+        //console.log('started ProjgrowthCtrl',$rootScope,$scope);
       };
 
       updateGrowthChart();
 
       $rootScope.$watch('growthDataChg',function(newValue,oldValue) {
         if (newValue && !oldValue) {
-          console.log('growthDataChg watch', newValue, oldValue);
+          //console.log('growthDataChg watch', newValue, oldValue);
           $rootScope.growthDataChg = false;
           updateGrowthChart();
         }

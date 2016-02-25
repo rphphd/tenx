@@ -20,14 +20,14 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">5% </span>
+        <span class="strong">4.76% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>1/20</span>
+        <span class='fraction'>1/21</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">0% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>0/4</span>
+        <span class='fraction'>0/6</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">0% </span>
@@ -35,9 +35,9 @@
         <span class='fraction'>0/3</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">5% </span>
+        <span class="strong">4.76% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>1/20</span>
+        <span class='fraction'>1/21</span>
       </div>
     </div>
   </div>
@@ -83,7 +83,14 @@
 38
 39
 40
-41</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+41
+42
+43
+44
+45
+46
+47
+48</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -95,6 +102,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -107,13 +115,19 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -135,8 +149,9 @@ angular.module('re2App')
   .directive('wpFloat', <span class="fstat-no" title="function not covered" >function ($window) {</span>
 &nbsp;
 <span class="cstat-no" title="statement not covered" >    var moveIt = <span class="fstat-no" title="function not covered" >function(scope){</span></span>
+      //console.log('in wpFloat, scope:',scope,$location.path(),$window.scrollY);
 <span class="cstat-no" title="statement not covered" >      var topBoundary, navTopBoundary, botElement, wpPaneH;</span>
-&nbsp;
+      //var floatLocations = ['/receng'];
 &nbsp;
 <span class="cstat-no" title="statement not covered" >      angular.element($window).bind('scroll', <span class="fstat-no" title="function not covered" >function() {</span></span>
 <span class="cstat-no" title="statement not covered" >        var topElement = $window.document.getElementById('topForWorkingPortfolio');</span>
@@ -146,14 +161,20 @@ angular.module('re2App')
 <span class="cstat-no" title="statement not covered" >        navTopBoundary = navElement.getBoundingClientRect().bottom;</span>
 <span class="cstat-no" title="statement not covered" >        navTopBoundary += navElement.style.marginBottom === '' ? 0 : parseInt(navElement.style.marginBottom);</span>
 &nbsp;
+<span class="cstat-no" title="statement not covered" >        var scrDiff = Math.max(topBoundary,navTopBoundary);</span>
+&nbsp;
 <span class="cstat-no" title="statement not covered" >        var wpPane = $window.document.getElementById('workPortfolioPane');</span>
 <span class="cstat-no" title="statement not covered" >        var wpPaneR = wpPane.getBoundingClientRect();</span>
 <span class="cstat-no" title="statement not covered" >        wpPaneH = wpPaneR.bottom - wpPaneR.top;</span>
+&nbsp;
 <span class="cstat-no" title="statement not covered" >        botElement = $window.document.getElementById('bottomForWorkingPortfolio');</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >        var scrDiff = Math.max(topBoundary,navTopBoundary);</span>
-<span class="cstat-no" title="statement not covered" >        var botBoundary = botElement.getBoundingClientRect().top;</span>
-<span class="cstat-no" title="statement not covered" >        scrDiff = Math.min(scrDiff, botBoundary-wpPaneH-30);</span>
+<span class="cstat-no" title="statement not covered" >        if (botElement!==null) {</span>
+<span class="cstat-no" title="statement not covered" >          var botBoundary = botElement.getBoundingClientRect().top;</span>
+<span class="cstat-no" title="statement not covered" >          scrDiff = Math.min(scrDiff, botBoundary-wpPaneH-30);</span>
+        }
+&nbsp;
+        //if (floatLocations.indexOf($location.path())&lt;0) { scrDiff = topBoundary; }
 &nbsp;
 <span class="cstat-no" title="statement not covered" >        scope.$parent.wpTop = {'top':scrDiff};</span>
 <span class="cstat-no" title="statement not covered" >        scope.$apply();</span>
@@ -169,7 +190,7 @@ angular.module('re2App')
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sat Feb 20 2016 08:25:45 GMT-0800 (PST)
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Feb 25 2016 11:12:25 GMT-0800 (PST)
 </div>
 </div>
 <script src="../../prettify.js"></script>

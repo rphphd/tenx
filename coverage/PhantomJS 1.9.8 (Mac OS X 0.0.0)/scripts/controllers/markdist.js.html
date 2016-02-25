@@ -27,17 +27,17 @@
       <div class='fl pad1y space-right2'>
         <span class="strong">0% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>0/6</span>
+        <span class='fraction'>0/10</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">0% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>0/7</span>
+        <span class='fraction'>0/5</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">4.76% </span>
+        <span class="strong">4.55% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>1/21</span>
+        <span class='fraction'>1/22</span>
       </div>
     </div>
   </div>
@@ -90,7 +90,12 @@
 45
 46
 47
-48</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+48
+49
+50
+51
+52
+53</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -107,29 +112,34 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -147,39 +157,44 @@
  * Controller of the re2App
  */
 angular.module('re2App')
-  .controller('MarkdistCtrl', <span class="fstat-no" title="function not covered" >function ($rootScope,$scope,_) {</span>
+  .controller('MarkdistCtrl', <span class="fstat-no" title="function not covered" >function ($rootScope,$scope,_,investmentService) {</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >     var updateMkts = <span class="fstat-no" title="function not covered" >function(recommendations) {</span></span>
+<span class="cstat-no" title="statement not covered" >    $scope.countLine = '';</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >        $scope.propCounts = recommendations.length;</span>
+<span class="cstat-no" title="statement not covered" >    var getTheProperties = <span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >      var theProperties = investmentService.getPortfolio();</span>
+<span class="cstat-no" title="statement not covered" >      if (typeof $rootScope.recommendations !== 'undefined' &amp;&amp;</span>
+          $rootScope.recommendations.length&gt;0
+      ) {
+<span class="cstat-no" title="statement not covered" >        theProperties = $rootScope.recommendations;</span>
+      }
+      //console.log('getTheProperties',theProperties);
+<span class="cstat-no" title="statement not covered" >      return theProperties;</span>
+    };
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    var updateMkts = <span class="fstat-no" title="function not covered" >function() {</span></span>
+<span class="cstat-no" title="statement not covered" >        var recommendations = getTheProperties();</span>
+<span class="cstat-no" title="statement not covered" >        var propCounts = recommendations.length;</span>
 <span class="cstat-no" title="statement not covered" >        $scope.theMarkets = _.groupBy(recommendations,<span class="fstat-no" title="function not covered" >function(p){</span></span>
 <span class="cstat-no" title="statement not covered" >          var theHIL = p.parameters.HIL.split(',');</span>
 <span class="cstat-no" title="statement not covered" >          return theHIL[0].replace(/ /g,'');</span>
         });
-<span class="cstat-no" title="statement not covered" >        var theCities = _.keys($scope.theMarkets);</span>
-<span class="cstat-no" title="statement not covered" >        $scope.marketCount = theCities.length;</span>
+<span class="cstat-no" title="statement not covered" >        $scope.theCities = _.keys($scope.theMarkets);</span>
+<span class="cstat-no" title="statement not covered" >        var marketCount = $scope.theCities.length;</span>
+<span class="cstat-no" title="statement not covered" >        $scope.countLine = propCounts &gt; 0 ?</span>
+          propCounts + ' Properties in ' + marketCount + ' Markets' :
+          'No properties selected';
+        //console.log('mkt dist updateMkts',propCounts,marketCount,$scope.countLine);
+    };
 &nbsp;
-<span class="cstat-no" title="statement not covered" >        $scope.cityStyle = <span class="fstat-no" title="function not covered" >function (city) {</span></span>
-<span class="cstat-no" title="statement not covered" >          var res = {display : 'none'};</span>
-<span class="cstat-no" title="statement not covered" >          _.forEach(theCities,<span class="fstat-no" title="function not covered" >function(c){</span></span>
-<span class="cstat-no" title="statement not covered" >            if (c.toLowerCase().replace(' ','')===city) { <span class="cstat-no" title="statement not covered" >res = {display : 'block' }; </span>}</span>
-          });
-<span class="cstat-no" title="statement not covered" >          return res;</span>
-       };
-&nbsp;
-     };
-&nbsp;
-&nbsp;
-<span class="cstat-no" title="statement not covered" >     $rootScope.haveRecommendations.then(<span class="fstat-no" title="function not covered" >function(results){</span></span>
-<span class="cstat-no" title="statement not covered" >      var recProps = results;</span>
-<span class="cstat-no" title="statement not covered" >      updateMkts(recProps);</span>
-    });
+<span class="cstat-no" title="statement not covered" >    updateMkts();</span>
 &nbsp;
 <span class="cstat-no" title="statement not covered" >    $rootScope.$watch('mktDistChg',<span class="fstat-no" title="function not covered" >function(newValue,oldValue) {</span></span>
 <span class="cstat-no" title="statement not covered" >      if (newValue &amp;&amp; !oldValue) {</span>
-<span class="cstat-no" title="statement not covered" >        console.log('mktDistChg watch', newValue, oldValue);</span>
+        //console.log('mktDistChg watch', newValue, oldValue);
+<span class="cstat-no" title="statement not covered" >        updateMkts();</span>
 <span class="cstat-no" title="statement not covered" >        $rootScope.mktDistChg = false;</span>
-<span class="cstat-no" title="statement not covered" >        updateMkts($rootScope.recommendations);</span>
+<span class="cstat-no" title="statement not covered" >        $rootScope.growthDataChg = true;</span>
       }
     });
 &nbsp;
@@ -190,7 +205,7 @@ angular.module('re2App')
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sat Feb 20 2016 08:25:45 GMT-0800 (PST)
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Feb 25 2016 11:12:25 GMT-0800 (PST)
 </div>
 </div>
 <script src="../../prettify.js"></script>

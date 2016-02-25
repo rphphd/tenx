@@ -17,7 +17,7 @@ describe('Controller: PortfolioCtrl', function () {
     });
   }));
 
-  it('should attach a list of awesomeThings to the scope', function () {
+/*  it('should attach a list of awesomeThings to the scope', function () {
     expect(PortfolioCtrl.awesomeThings.length).toBe(3);
-  });
+  });*/
 });

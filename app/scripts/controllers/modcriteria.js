@@ -13,13 +13,13 @@ angular.module('re2App')
     var openClosePanel = false;
     $scope.invAmt = '$' +  investmentService.getInvParms()
         .investmentAmount.toLocaleString('currency');
-    console.log('invAmt',$scope.invAmt);
+    //console.log('invAmt',$scope.invAmt);
     $scope.locations = investmentService.getLocations().join(', ');
     $scope.neighborhoods = investmentService.getNeighborhoods();
-    console.log('neighborhoods',$scope.neighborhoods);
+    //console.log('neighborhoods',$scope.neighborhoods);
     $scope.financing = investmentService.getFinancing();
     $scope.fc = [ {name: 'financed', selected: false} , {name: 'cash', selected: false} ];
-    console.log('financing',$scope.financing);
+    //console.log('financing',$scope.financing);
     $scope.goals = [ {name: 'yields', selected: false },
           {name: 'appreciation', selected: false }, {name: 'balanced', selected: false } ];
     $scope.invPlan = investmentService.getInvPlan();
@@ -56,7 +56,7 @@ angular.module('re2App')
     $scope.openClose = 'fa fa-chevron-down';
     $scope.filters = filters;
     $scope.theRowRange = _.range(Math.ceil(filters.length/3));
-    console.log($scope.filters,$scope.theRowRange);
+    //console.log($scope.filters,$scope.theRowRange);
 
     $scope.openClosePanel = function() {
       if (openClosePanel) {
@@ -74,15 +74,15 @@ angular.module('re2App')
       var invPlan = investmentService.getInvParms();
       invPlan.investmentAmount = parseInt(newValue.replace('$','').replace(',',''));
       investmentService.setInvParms(invPlan);
-      console.log('watch', newValue,investmentService.getInvParms());
+      //console.log('watch', newValue,investmentService.getInvParms());
       investmentService.resetRecommendations();
     };
 
     $scope.selectNH = function (nh) {
-      console.log('selectNH',nh);
+      //console.log('selectNH',nh);
       if (nh.selected) { nh.selected = false; }
       else { nh.selected = true; }
-      console.log('neighborhoods updated',$scope.neighborhoods);
+      //console.log('neighborhoods updated',$scope.neighborhoods);
       investmentService.setNeighborhoods($scope.neighborhoods);
       investmentService.resetRecommendations();
     };

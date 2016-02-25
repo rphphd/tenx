@@ -20,7 +20,10 @@ angular.module('re2App')
     $scope.portfolioName = 'Working';
     $scope.showCheckBox = true;
     $scope.showPropListButtons = true;
+    $scope.showWatchReplace = true;
     $rootScope.showPropsBadge = false;
+    $scope.headerView = 'views/plheader.html';
+    $scope.showHelp = true;
 
     console.log('RecengCtrl $scope', $scope.$id, $scope);
 
@@ -43,7 +46,13 @@ angular.module('re2App')
       var portPropsPids = _.pluck(investmentService.getPortfolio(),'pid');
       setRecommendations(investmentService.orderBy(results,'PRICE'));
       _.forEach($rootScope.recommendations, function(r) {
-        if (portPropsPids.indexOf(r.pid)<0) { r.selected = true; }
+        if (portPropsPids.indexOf(r.pid)<0) {
+          r.selected = true;
+          setAddRemoveButton(r.pid,'pdAddToPortfolio','plus','Add to');
+        } else {
+          r.selected = false;
+          setAddRemoveButton(r.pid,'pdRemoveFromPortfolio','minus','Remove from');
+        }
       });
       $rootScope.invMixChg = true;
       console.log('in haveRecommendations, recommendatons',_.pluck($rootScope.recommendations,'pid').sort());
@@ -74,8 +83,10 @@ angular.module('re2App')
       console.log('addToRemoveFromPortfolio',pid,theElement.className);
       if (theElement.className.indexOf('pdAddToPortfolio')>=0) {
         var theOneToAddOrRemove = _.find($rootScope.recommendations,{pid : pid});
+        theOneToAddOrRemove.selected = false;
         investmentService.addToPortfolio(theOneToAddOrRemove);
         setAddRemoveButton(pid,'pdRemoveFromPortfolio','minus','Remove from');
+
       } else {
         investmentService.deleteFromPortfolio(pid);
         setAddRemoveButton(pid,'pdAddToPortfolio','plus','Add to');
@@ -126,7 +137,7 @@ angular.module('re2App')
         $rootScope.propertyListingChange = false;
         var portPropsPids = _.pluck(investmentService.getPortfolio(),'pid');
         var recProps = investmentService.getRecommendationUpdate();
-        console.log('propertyListingChange',portPropsPids,recProps);
+        //console.log('propertyListingChange',portPropsPids,recProps);
         _.forEach(recProps,function(rp){
           if (portPropsPids.indexOf(rp.pid)>=0) {
             setAddRemoveButton(rp.pid,'pdRemoveFromPortfolio','minus','Remove from');
@@ -151,6 +162,7 @@ angular.module('re2App')
         var newPid = _.difference(_.pluck($rootScope.recommendations,'pid'),currentPids)[0];
         console.log('newPid',newPid,'new recommendations',$scope,_.pluck($rootScope.recommendations,'pid').sort());
         setAddRemoveButton(newPid,'pdAddToPortfolio','plus','Add to');
+        $rootScope.recommendations[newPid].selected = true;
         $rootScope.invMixChg = true;
         $rootScope.portfolioChange = true;
         $rootScope.propertyListingChange = true;

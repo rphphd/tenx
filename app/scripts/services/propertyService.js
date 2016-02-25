@@ -128,6 +128,7 @@ angular.module('re2App')
         inventory = _.remove(data,function(itm){
           return itm.nirclass !== 'D';
         });
+        inventory = _.uniq(inventory,'pid');
         //console.log('inventory pulled from json', inventory);
         deferred.resolve(inventory);
       })
@@ -203,7 +204,7 @@ angular.module('re2App')
             { 'id': 'proj-cashflow', 'label': 'Cash Flow', 'type': 'number', 'p': {} }
           ]
       };
-      console.log('get30yrGrowthData',properties, financing);
+      //console.log('get30yrGrowthData',properties, financing);
       for (var i=1;i<growthData.length;i++) {
           growthData[i][1] = investment(properties, financing, growthData[i][0]);
           growthData[i][2] = loanPaydown(properties, financing, growthData[i][0]);
@@ -211,7 +212,7 @@ angular.module('re2App')
           growthData[i][4] = cashFlow(properties, financing, growthData[i][0]);
 
       }
-      console.log('growthData',JSON.stringify(growthData));
+      //console.log('growthData',JSON.stringify(growthData));
 
       data.rows = [];
       var newVals = [];
@@ -226,7 +227,7 @@ angular.module('re2App')
         data.rows.push( { 'c' : newVals } );
       });
 
-      console.log('data', data);
+      //console.log('data', data);
 
       return data;
     };

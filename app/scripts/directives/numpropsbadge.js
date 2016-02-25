@@ -12,9 +12,9 @@ angular.module('re2App')
       template: '<span class="badge" ng-show="showPropsBadge">{{numProps}}</span>',
       restrict: 'E',
       link: function postLink(scope, element, attrs) {
-          console.log('numPropsBadge',scope,element,attrs);
+          //console.log('numPropsBadge',scope,element,attrs);
           scope.$watch(attrs.inRe, function() {
-              console.log('showNavBar link watch',scope, attrs.ngHide, element, scope[attrs.ngHide] );
+              //console.log('showNavBar link watch',scope, attrs.ngHide, element, scope[attrs.ngHide] );
               $compile(element.contents())(scope);
           });
       }

@@ -20,14 +20,14 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">3.57% </span>
+        <span class="strong">3.7% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>1/28</span>
+        <span class='fraction'>1/27</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">0% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>0/4</span>
+        <span class='fraction'>0/8</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">0% </span>
@@ -35,9 +35,9 @@
         <span class='fraction'>0/6</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">3.57% </span>
+        <span class="strong">3.7% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>1/28</span>
+        <span class='fraction'>1/27</span>
       </div>
     </div>
   </div>
@@ -96,7 +96,14 @@
 51
 52
 53
-54</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+54
+55
+56
+57
+58
+59
+60
+61</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -108,22 +115,12 @@
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -133,15 +130,32 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -159,9 +173,9 @@
  * Controller of the re2App
  */
 angular.module('re2App')
-  .controller('InvmixCtrl', <span class="fstat-no" title="function not covered" >function ($rootScope, $scope, _, riskGroupService) {</span>
+  .controller('InvmixCtrl', <span class="fstat-no" title="function not covered" >function (</span>
+                  $rootScope, $scope, _, riskGroupService, investmentService) {
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    var recProps = [];</span>
 <span class="cstat-no" title="statement not covered" >    var nhCounts;</span>
 <span class="cstat-no" title="statement not covered" >    var nhClasses = ['LUXURY','A','B','C'];</span>
 <span class="cstat-no" title="statement not covered" >    $scope.nhColors= [];</span>
@@ -170,7 +184,19 @@ angular.module('re2App')
 <span class="cstat-no" title="statement not covered" >      $scope.nhColors[nhc] = riskGroupService.getNirColor(nhc);</span>
     });
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    var updateMix = <span class="fstat-no" title="function not covered" >function (recommendations) {</span></span>
+<span class="cstat-no" title="statement not covered" >    var getTheProperties = <span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >      var theProperties = investmentService.getPortfolio();</span>
+<span class="cstat-no" title="statement not covered" >      if (typeof $rootScope.recommendations !== 'undefined' &amp;&amp;</span>
+          $rootScope.recommendations.length&gt;0
+      ) {
+<span class="cstat-no" title="statement not covered" >        theProperties = $rootScope.recommendations;</span>
+      }
+      //console.log('getTheProperties',theProperties);
+<span class="cstat-no" title="statement not covered" >      return theProperties;</span>
+    };
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    var updateMix = <span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >      var recommendations = getTheProperties();</span>
 <span class="cstat-no" title="statement not covered" >      nhCounts = { 'LUXURY' : 0, 'A' : 0, 'B' : 0, 'C' : 0 };</span>
 <span class="cstat-no" title="statement not covered" >      _.forEach(recommendations,<span class="fstat-no" title="function not covered" >function(p){</span></span>
 <span class="cstat-no" title="statement not covered" >        var nh = p.nirclass.substr(0,1).toUpperCase().replace('L','Luxury');</span>
@@ -180,23 +206,18 @@ angular.module('re2App')
 <span class="cstat-no" title="statement not covered" >          nhCounts[nh] = 1;</span>
         }
       });
-<span class="cstat-no" title="statement not covered" >      console.log('nhCounts',nhCounts);</span>
+      //console.log('nhCounts',nhCounts, 'recommendations', recommendations);
 <span class="cstat-no" title="statement not covered" >      $scope.nhClasses = nhClasses;</span>
 <span class="cstat-no" title="statement not covered" >      $scope.nhCounts = nhCounts;</span>
     };
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    console.log('$scope.nhColors',$scope.nhColors);</span>
-<span class="cstat-no" title="statement not covered" >    $rootScope.haveRecommendations.then(<span class="fstat-no" title="function not covered" >function(results){</span></span>
-<span class="cstat-no" title="statement not covered" >      recProps = results;</span>
-<span class="cstat-no" title="statement not covered" >      console.log('inv mix rec Props',recProps);</span>
-<span class="cstat-no" title="statement not covered" >      updateMix(results);</span>
-    });
+<span class="cstat-no" title="statement not covered" >    updateMix();</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    $rootScope.$watch('invMixChg',<span class="fstat-no" title="function not covered" >function(newValue,oldValue) {</span></span>
-<span class="cstat-no" title="statement not covered" >      if (newValue !== oldValue) {</span>
-<span class="cstat-no" title="statement not covered" >        console.log('invMixChg watch', newValue, oldValue);</span>
+<span class="cstat-no" title="statement not covered" >    $rootScope.$watch('invMixChg',<span class="fstat-no" title="function not covered" >function(newValue) {</span></span>
+<span class="cstat-no" title="statement not covered" >      if (newValue) {</span>
+        //console.log('invMixChg watch', newValue, oldValue);
+<span class="cstat-no" title="statement not covered" >        updateMix();</span>
 <span class="cstat-no" title="statement not covered" >        $rootScope.invMixChg = false;</span>
-<span class="cstat-no" title="statement not covered" >        updateMix($rootScope.recommendations);</span>
 <span class="cstat-no" title="statement not covered" >        $rootScope.mktDistChg = true;</span>
       }
     });
@@ -208,7 +229,7 @@ angular.module('re2App')
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sat Feb 20 2016 08:25:45 GMT-0800 (PST)
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Feb 25 2016 11:12:25 GMT-0800 (PST)
 </div>
 </div>
 <script src="../../prettify.js"></script>
