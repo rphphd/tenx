@@ -21,7 +21,7 @@ angular.module('re2App')
     $scope.showCheckBox = true;
     $scope.showPropListButtons = true;
     $scope.showWatchReplace = false;
-    $scope.masterSelect = false;
+    $rootScope.masterSelect = false;
 
     $scope.numPerPage = 10;
     $scope.numPagesToShow = 7;
@@ -32,7 +32,7 @@ angular.module('re2App')
     $scope.ctlName = 'propsearch';
 
     var theProps = [];
-    investmentService.setPortfolio(theProps);
+    investmentService.setPortfolio([]);
 
     var getTheProps = function (){
       investmentService.searchInventory().then(function(props){
@@ -48,6 +48,7 @@ angular.module('re2App')
 
     var updatePortfolio = function () {
       $rootScope.recommendations = $scope.recommendations;
+      $rootScope.numProps = $rootScope.recommendations.length;
       var theSelected = _.filter($scope.recommendations, { selected: true});
       $scope.numSelected = typeof theSelected === 'undefined' ? 0 : theSelected.length;
       console.log('updatePortfolio',$scope.recommendations,theSelected, $scope.numSelected);
@@ -77,6 +78,14 @@ angular.module('re2App')
       console.log('watch investment parameters',JSON.stringify(newVal));
       getTheProps();
     },true);
+
+    $scope.$watch('portfolioChange',function(newVal){
+      if (newVal) {
+        $rootScope.masterSelect = false;
+        $rootScope.portfolioChange = false;
+        console.log('in propsearch portfolioChange watch',$scope);
+      }
+    });
 
     $scope.nSteps = [
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In erat mauris, faucibus quis pharetra sit amet, pretium ac libero.',
@@ -110,10 +119,10 @@ angular.module('re2App')
     };
 
     $scope.checkedMaster = function() {
-      $scope.masterSelect = !$scope.masterSelect;
-      console.log('checkedMaster',$scope.masterSelect);
+      $rootScope.masterSelect = !$rootScope.masterSelect;
+      console.log('checkedMaster'/*,$rootScope.masterSelect*/);
       _.forEach($scope.recommendations, function(r){
-         r.selected = $scope.masterSelect;
+         r.selected = $rootScope.masterSelect;
          r.recommended = true;
       },$scope);
       updatePortfolio();

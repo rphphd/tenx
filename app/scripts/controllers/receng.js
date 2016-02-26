@@ -137,7 +137,7 @@ angular.module('re2App')
         $rootScope.propertyListingChange = false;
         var portPropsPids = _.pluck(investmentService.getPortfolio(),'pid');
         var recProps = investmentService.getRecommendationUpdate();
-        //console.log('propertyListingChange',portPropsPids,recProps);
+        console.log('propertyListingChange',portPropsPids,recProps);
         _.forEach(recProps,function(rp){
           if (portPropsPids.indexOf(rp.pid)>=0) {
             setAddRemoveButton(rp.pid,'pdRemoveFromPortfolio','minus','Remove from');

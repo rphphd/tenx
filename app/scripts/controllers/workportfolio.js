@@ -148,6 +148,8 @@ angular.module('re2App')
           $scope.hasPropertySelections = 'font-weight:normal;';
           $rootScope.portfolioChange = true;
           $rootScope.propertyListingChange = true;
+          $rootScope.masterSelect = false;
+          console.log('worportfolio addToPortfolio scope',$scope,$rootScope);
           break;
         case 'Conf': break;
         case 'Crea':
@@ -175,6 +177,7 @@ angular.module('re2App')
 
         $rootScope.numProps = $rootScope.recommendations.length;
         console.log('got to portfolioChange',$rootScope.numProps,$rootScope.recommendations);
+        console.log('scope parent parent',$scope.$parent.$parent);
         $scope = setVariables($scope);
         setUpButton();
       }
